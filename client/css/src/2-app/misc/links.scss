@@ -1,0 +1,21 @@
+a {
+  text-shadow: rgba(0, 0, 0, 0.30) -1px 1px 3px;
+
+  &, &:visited, &:active {
+    color : $text-color;
+    @include transition-duration(.4s);
+  }
+
+  &:hover {
+    color : $text-color;
+    text-decoration : none;
+    text-shadow: rgba(0, 0, 0, 0.65) -1px 1px 3px;
+    @include transition-duration(.2s);
+  }
+}
+
+@media print {
+  a[href]:after {
+    content: ""
+  }
+}

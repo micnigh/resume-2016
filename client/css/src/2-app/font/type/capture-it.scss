@@ -1,0 +1,29 @@
+$font-path : "../fonts/";
+$font-name : "capture-it";
+
+@font-face {
+  font-family: 'capture-it';
+  src: url('#{$font-path}#{$font-name}.eot');
+  src: url('#{$font-path}#{$font-name}.eot?#iefix') format('embedded-opentype'),
+       url('#{$font-path}#{$font-name}.woff') format('woff'),
+       url('#{$font-path}#{$font-name}.ttf') format('truetype'),
+       url('#{$font-path}#{$font-name}.svg##{font-name}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Catchall baseclass
+.capture-it, .primary-font {
+  font-family: 'capture-it';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.bold.wide-sm { letter-spacing : 0.15em; }
+  &.bold.wide-md { letter-spacing : 0.30em; }
+  &.bold.wide-lg { letter-spacing : 0.45em; }
+
+  &.remove-leading { line-height : 0.70em; }
+}

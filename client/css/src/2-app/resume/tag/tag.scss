@@ -1,0 +1,6 @@
+.tag {
+  display : inline-block;
+  color   : lighten($text-color, 40%);
+  padding-right : $font-size-base / 2;
+  font-size : $font-size-base * 0.90;
+}

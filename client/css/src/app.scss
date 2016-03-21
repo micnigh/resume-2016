@@ -1,12 +1,31 @@
-@import "libs/reset";
-
-@import "app/shared/sprites";
-@import "app/shared/mixins";
-@import "app/shared/colors";
-@import "app/shared/variables";
-@import "app/shared/global";
-
-@import "app/fonts";
-@import "app/typography";
-@import "app/links";
-@import "app/layout";
+// import in order
+@import "0-global/0-bootstrap-overrides/0-load-default-bootstrap-variables";
+@import "0-global/0-bootstrap-overrides/1-overwrite-bootstrap-variables";
+@import "0-global/0-bootstrap-overrides/2-load-default-bootstrap-mixins";
+@import "0-global/0-bootstrap-overrides/3-overwrite-bootstrap-mixins";
+@import "0-global/0-bootstrap-overrides/4-add-screen-ms-size";
+@import "0-global/1-font-awesome-overrides/0-load-default-font-awesome-variables";
+@import "0-global/1-font-awesome-overrides/1-overwrite-font-awesome-variables";
+@import "0-global/1-font-awesome-overrides/2-load-default-font-awesome-mixins";
+@import "0-global/1-font-awesome-overrides/3-overwrite-font-awesome-mixins";
+@import "0-global/2-global/mixins";
+@import "0-global/2-global/variables";
+@import "1-vendor/0-bootstrap/0-bootstrap";
+@import "1-vendor/0-bootstrap/1-bootstrap-ms";
+@import "1-vendor/1-font-awesome/import-font-awesome";
+@import "2-app/font/type/capture-it";
+@import "2-app/font/type/special-elite";
+@import "2-app/layout";
+@import "2-app/misc/bold";
+@import "2-app/misc/google-voice-link-color";
+@import "2-app/misc/links";
+@import "2-app/misc/page_break";
+@import "2-app/misc/paragraph";
+@import "2-app/misc/title";
+@import "2-app/resume/experience/header";
+@import "2-app/resume/experience/project";
+@import "2-app/resume/header/header";
+@import "2-app/resume/skill/skills";
+@import "2-app/resume/tag/tag";
+@import "2-app/scrollbar";
+@import "2-app/spinner";

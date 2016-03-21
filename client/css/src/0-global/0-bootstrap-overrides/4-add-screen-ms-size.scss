@@ -1,0 +1,9 @@
+// Use bootstrap proposed ms sizing from
+// https://github.com/twbs/bootstrap/issues/10203
+// to handle phone portrait vs landscape sizing
+// now sizes are
+// xs   ms   sm   md   lg
+// <480 <768 >=768 >=992 >=1200
+$screen-xs-max : 480px - 1;
+$screen-ms-min : 480px;
+$screen-ms-max : 768px - 1;

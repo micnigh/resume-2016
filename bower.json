@@ -1,5 +1,9 @@
 {
   "name": "boilerplate-isomorphic-typescript",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.0",
+    "font-awesome":            "~4.1.0",
+    "devicon": "git://github.com/konpa/devicon#master"
+  }
 }

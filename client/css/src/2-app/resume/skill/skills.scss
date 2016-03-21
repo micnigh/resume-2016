@@ -1,0 +1,58 @@
+$num-skills   : 11;
+$skill-height : 24px;
+$skill-margin-bottom : 2px;
+$skills-padding-top-bottom : 28px*2;
+$skills-graph-height : ($num-skills)*$skill-margin-bottom + ($num-skills*$skill-height) + ($skills-padding-top-bottom*2);
+
+#skills-graph {
+  //height : 371px;
+  height : $skills-graph-height;
+}
+
+.skill-graph-bar {
+  fill             : #000000;
+  stroke-opacity   : 0.50;
+  stroke-width     : 0;
+}
+
+.skill-graph-text {
+  fill : #ffffff;
+}
+
+.skill-graph-bar.guideline {
+  fill             : #888;
+}
+
+.skill-graph-text.guideline {
+  fill             : #888;
+}
+
+.skill-graph-print-duration-text {
+  fill    : #a0a0a0;
+  opacity : 1.0 !important;
+}
+
+@media print {
+
+  .skill-graph-bar {
+    fill             : #c5c5c5;
+    stroke-opacity   : 0.50;
+    stroke-width     : 0;
+  }
+
+  .skill-graph-bar.guideline {
+    fill             : #000;
+  }
+  .skill-graph-text.guideline {
+    fill             : #000;
+  }
+
+  .skill-graph-text {
+    fill : #000;
+  }
+
+  .skill-graph-print-duration-text {
+    fill    : #a0a0a0;
+    opacity : 1.0 !important;
+  }
+}

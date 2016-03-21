@@ -1,0 +1,7 @@
+.gc-cs-link {
+  color : $link-color !important;
+  text-decoration: none !important;
+  &:hover {
+    color : $link-hover-color !important;
+  }
+}

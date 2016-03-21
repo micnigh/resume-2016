@@ -170,6 +170,8 @@ let config: GulpConfig = {
           "client/css/src/",
           "client/css/libs/",
           "node_modules/",
+          "client/.bower_components/",
+          "client/.bower_components/bootstrap-sass-official/assets/stylesheets/",
         ],
         dependsOn: [
           "build:sprite",

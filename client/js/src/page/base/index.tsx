@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Navigation from "./component/navigation";
 
 export class Base extends Component<any, any> {
   render() {
     return (
       <div className="page">
-        <Navigation/>
-        <div className="content">
-          { this.props.children }
+        <div className="content container">
+          <div className="secondary-font">
+            { this.props.children }
+          </div>
         </div>
         <div className="footer"/>
       </div>

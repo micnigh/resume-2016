@@ -1,0 +1,94 @@
+.experience .header {
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .icons {
+    flex:         1;
+    margin-left:  1 * $font-size-base;
+    margin-right: 1 * $font-size-base;
+    margin-top: -3px;
+  }
+
+  .link {
+    vertical-align: top;
+    margin-left:    1 * $font-size-base;
+    font-size:      1 * $font-size-base;
+  }
+
+  .icon {
+    max-width:    1.25 * $font-size-base;
+    max-height:   1.25 * $font-size-base;
+    margin-left:  0.05 * $font-size-base;
+    margin-right: 0.05 * $font-size-base;
+  }
+
+  .icon:first-child {
+    margin-left:  0;
+  }
+
+  /*
+    A vendor script seems to have gone nuclear with img { max-width: 100% !important }
+    causing our icons to blow up.  Seems like a bug - will have to look into it later.
+    For now - we will override.
+  */
+  @media print {
+    .icon {
+      max-width: 1.2 * $font-size-base !important;
+    }
+  }
+
+  .duration {
+    margin-top    :  1 * $font-size-base;
+    margin-bottom :  1 * $font-size-base;
+  }
+
+  @media only screen and (max-width: $screen-ms-max) {
+    display: block;
+
+    .title {
+      margin-bottom : 0px;
+    }
+
+    .icons {
+      margin-left:  0;
+      margin-right: 0;
+
+      .link {
+        display:        inline-block !important;
+        margin-left:    1 * $font-size-base;
+        margin-right:   1 * $font-size-base;
+        font-size:      1.5 * $font-size-base;
+      }
+
+      .icon {
+        max-width:    1.5 * $font-size-base;
+        max-height:   1.5 * $font-size-base;
+        margin-left:  0.20 * $font-size-base;
+        margin-right: 0.20 * $font-size-base;
+      }
+
+      .icon:first-child {
+        margin-left:  0;
+      }
+    }
+
+    .duration, .icons {
+      margin-top    :  1 * $font-size-base;
+      margin-bottom :  1 * $font-size-base;
+    }
+  }
+
+  @media only screen and (min-width: $screen-ms-max+1) {
+    .link.visible-print {
+      display: block !important;
+    }
+  }
+
+  @media only print and (max-width: $screen-ms-max) {
+    .link.hidden-print {
+      display: none !important;
+    }
+  }
+}

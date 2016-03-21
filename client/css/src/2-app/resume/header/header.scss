@@ -1,0 +1,93 @@
+#header{
+
+  overflow : visible;
+
+  padding-top    : $font-size-base * 1;
+  padding-bottom : $font-size-base * 1;
+
+  @media (max-width : $screen-ms-max) {
+    padding-bottom : 0px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    margin-top    :  1 * $font-size-base;
+    margin-bottom : -1 * $font-size-base;
+  }
+
+  .social {
+    @media only print {
+      display : block !important;
+    }
+  }
+
+  .mobile.social {
+    @media only print {
+      display : none !important;
+    }
+  }
+
+  .contact .social.icons {
+
+    $icon-scalar : 1.35;
+    $icon-size-base : $font-size-base * $icon-scalar;
+    $icon-margin-top-scalar : $icon-scalar - 1.0;
+    $icon-margin-top : -1 * $icon-size-base * $icon-margin-top-scalar;
+
+    $icon-gplus-font-size-scalar  : 0.75;
+    $icon-gplus-margin-top-scalar : 0.20;
+
+    $icon-mobile-scalar : (2 / $icon-scalar);
+    $icon-mobile-size-base : $icon-size-base * $icon-mobile-scalar;
+    $icon-mobile-margin-top-scalar : $icon-mobile-scalar - 1.0;
+    $icon-mobile-margin-top : -1 * $icon-mobile-size-base * $icon-mobile-margin-top-scalar;
+
+    .google-plus .fa {
+      font-size  : $icon-size-base * $icon-gplus-font-size-scalar;
+      margin-top : $icon-size-base * $icon-gplus-margin-top-scalar;
+    }
+
+    font-size : $icon-size-base;
+
+    @media only screen and (max-width: $screen-ms-max) {
+      margin-top    :  0px;
+
+      padding-top    : $icon-mobile-size-base;
+      padding-bottom : 0px;
+
+      font-size : $icon-mobile-size-base;
+
+      .google-plus .fa {
+        font-size  : $icon-mobile-size-base * $icon-gplus-font-size-scalar;
+        margin-top : $icon-mobile-size-base * $icon-gplus-margin-top-scalar;
+      }
+    }
+
+    ul {
+      list-style : none;
+      margin-bottom : -1 * $font-size-base;
+      margin-top    : $icon-margin-top;
+
+      @media only screen and (max-width: $screen-ms-max) {
+        display : inline-block;
+        padding : 0px;
+        margin-top    : $icon-mobile-margin-top;
+      }
+    }
+
+    li {
+      $spacing : $icon-size-base * 0.8;
+
+      float : left;
+      margin-left : $spacing;
+
+      @media only screen and (max-width: $screen-ms-max) {
+        $spacing : $icon-mobile-size-base;
+
+        &:first-child { margin-left : $spacing; }
+
+        margin-left : 0px;
+        margin-right : $spacing;
+      }
+    }
+  }
+}

@@ -19,3 +19,6 @@ typings
 /tasks/**/*.es6
 
 !/gulpfile.transpile.js
+!/gulpfile.postinstall.js
+
+/server/public/fonts/*fontawesome*
