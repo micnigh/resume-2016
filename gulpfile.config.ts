@@ -135,6 +135,27 @@ let config: GulpConfig = {
           ],
         },
       },
+      {
+        taskName: "test:data:spec",
+        dest: `${distPath}/js/data/`,
+        entries: [
+          "data/**/*.spec.ts{,x}",
+        ],
+        bootstrap: [
+          "client/js/src/test/bootstrap.js",
+        ],
+        browsersync: [
+          bsTest,
+        ],
+        hmr: false,
+        webpack: {
+          plugins: [
+            new webpack.DefinePlugin({
+              "process.env.NODE_ENV": JSON.stringify("test"),
+            }),
+          ],
+        },
+      },
     ],
   },
   css: {

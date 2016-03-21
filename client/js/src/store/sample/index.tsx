@@ -1,7 +1,5 @@
-import moment from "moment";
+import data from "../../../../../data/";
 
-let sampleState = {
-  entities: {},
-};
+let sampleState = data;
 
 export default sampleState;

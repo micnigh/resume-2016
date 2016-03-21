@@ -57,6 +57,7 @@ let sourcesTypescript = [
   "*.ts{,x}",
   "client/**/*.ts{,x}",
   "server/**/*.ts{,x}",
+  "data/**/*.ts{,x}",
   "shared/**/*.ts{,x}",
   "tasks/**/*.ts{,x}",
 ];

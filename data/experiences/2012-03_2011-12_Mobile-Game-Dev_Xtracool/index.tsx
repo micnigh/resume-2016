@@ -1,0 +1,43 @@
+import moment from "moment";
+import marked from "marked";
+import { NormalizedExperience } from "../index.types";
+import { createExperience, createTags } from "../";
+
+export let title = `Mobile Game Dev - xtracool`;
+
+export let start = `2011-12`;
+export let end = `2012-03`;
+export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
+
+export let summaryMarkdown = `
+Architected cross platform game engine for use with iOS and Android.  Built on the Moai SDK with game and game engine written in Moonscript and Lua.  Built against actively evolving SDKs.  Chipmunk used for physics and collision detection.
+`;
+
+export let tags = createTags(duration, [
+  `iOS`,
+  `Android`,
+  `Moai SDK`,
+  `Moonscript`,
+  `Lua`,
+  `Chipmunk`,
+]);
+
+export let icons = [
+  `apple`,
+];
+
+export let projects = [];
+
+export let experience: NormalizedExperience = createExperience({
+  title,
+  start,
+  end,
+  duration,
+  icons,
+  tags,
+  projects,
+  summaryHtml: marked(summaryMarkdown),
+  summaryMarkdown,
+});
+
+export default experience;

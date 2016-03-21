@@ -7,12 +7,14 @@ typings
 /*.js
 /client/**/*.js
 /server/**/*.js
+/data/**/*.js
 /shared/**/*.js
 /tasks/**/*.js
 
 /*.es6
 /client/**/*.es6
 /server/**/*.es6
+/data/**/*.es6
 /shared/**/*.es6
 /tasks/**/*.es6
 
