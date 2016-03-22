@@ -1,4 +1,4 @@
-boilerplate isomorphic typescript
+resume.mnigh.com
 
 # Requirements/Recommended
 
@@ -20,9 +20,6 @@ npm install
 # every time
 gulp --gulpfile gulpfile.transpile.js watch
 gulp watch
-
-# when working with real db
-docker-compose up
 ```
 
 # Features
