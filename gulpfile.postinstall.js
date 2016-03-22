@@ -4,21 +4,34 @@ let plumber = require("gulp-plumber");
 let flatten = require("gulp-flatten");
 let size = require("gulp-size");
 let fs = require("fs");
-let mainBowerFiles = require("main-bower-files");
 
-gulp.task("build", ["build:font:bower"]);
+gulp.task("build", ["build:font:bower", "build:icons"]);
 
 gulp.task("build:font:bower", function () {
-  if(fs.existsSync(`${process.cwd()}/bower.json`)) {
-    return gulp.src(mainBowerFiles({
-      filter: /(eot|svg|ttf|woff|otf)$/,
-    }))
+  let bowerDir = JSON.parse(fs.readFileSync(`${process.cwd()}/.bowerrc`)).directory;
+  return gulp.src([
+    `${bowerDir}/font-awesome/fonts/**/*`,
+  ])
+    .pipe(plumber())
+    .pipe(flatten())
+    .pipe(gulp.dest("server/public/fonts/"))
+    .pipe(size({
+      showFiles : true,
+      title     : "fonts",
+    }));
+});
+
+gulp.task("build:icons", function () {
+  if (fs.existsSync(`${process.cwd()}/.bowerrc`)) {
+    let bowerDir = JSON.parse(fs.readFileSync(`${process.cwd()}/.bowerrc`)).directory;
+    return gulp.src([
+      `${bowerDir}/devicon/icons/**/*`,
+    ])
       .pipe(plumber())
-      .pipe(flatten())
-      .pipe(gulp.dest("server/public/fonts/"))
+      .pipe(gulp.dest("server/public/images/icons/"))
       .pipe(size({
         showFiles : true,
-        title     : "font",
+        title     : "icons",
       }));
   }
 });

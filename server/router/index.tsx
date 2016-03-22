@@ -59,7 +59,7 @@ let relPathToBaseUrl = function (path) {
 
 let clearModuleCacheForSharedModules = function () {
   let escape = require("regexp.escape");
-  let regExpString = "^" + escape(path.resolve(`${process.cwd()}/client/js/src/`));
+  let regExpString = "^" + escape(path.resolve(`${process.cwd()}/`));
   let regExpTester = new RegExp(regExpString);
   let modulesToDelete = [];
   for (let k in require.cache) {

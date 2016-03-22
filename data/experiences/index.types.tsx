@@ -3,11 +3,11 @@ interface ProjectNoRelations {
 
   title: string;
 
-  /** moment compatible date | hasStartTime */
-  start: string | boolean;
+  /** moment compatible date | empty string */
+  start: string;
 
-  /** moment compatible date | hasEndTime */
-  end: string | boolean;
+  /** moment compatible date | empty string */
+  end: string;
 
   /** moment.duration().toJSON() */
   duration: string;
@@ -47,6 +47,9 @@ export interface NormalizedExperience extends NormalizedProject {
 export interface Tag {
   id?: string;
   name: string;
+
+  /** path to image icon */
+  icon: string;
 
   /** moment.duration().toJSON() */
   duration: string;

@@ -8,3 +8,7 @@ experience.define({
   projects: arrayOf(project),
   tags: arrayOf(tag),
 });
+
+project.define({
+  tags: arrayOf(tag),
+});

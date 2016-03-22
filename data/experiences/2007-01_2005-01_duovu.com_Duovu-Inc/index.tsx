@@ -30,10 +30,10 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `java`,
-  `javascript`,
-  `php`,
-  `mysql`,
+  `Java`,
+  `Javascript`,
+  `PHP`,
+  `MYSQL`,
 ];
 
 export let projects = [];

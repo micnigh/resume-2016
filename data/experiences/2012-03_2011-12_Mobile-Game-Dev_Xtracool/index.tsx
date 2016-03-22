@@ -15,6 +15,7 @@ Architected cross platform game engine for use with iOS and Android.  Built on t
 
 export let tags = createTags(duration, [
   `iOS`,
+  `Apple`,
   `Android`,
   `Moai SDK`,
   `Moonscript`,
@@ -23,7 +24,7 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `apple`,
+  `Apple`,
 ];
 
 export let projects = [];

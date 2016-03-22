@@ -50,7 +50,7 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `rails`,
+  `Rails`,
 ];
 
 export let projects = [];

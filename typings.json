@@ -5,7 +5,9 @@
     "lodash": "github:typed-typings/npm-lodash#65781ee6b25562ee9b5913043a3ba249acfcee17",
     "mkdirp": "github:typed-typings/npm-mkdirp#198dc9b86004c5a4995ac28ee782c3391fb7ee56",
     "moment": "github:typed-typings/npm-moment#a4075cd50e63efbedd850f654594f293ab81a385",
-    "node-uuid": "github:rapropos/typed-node-uuid#a2ad36f2802416729eaad89559d76e0b03ba673c"
+    "node-uuid": "github:rapropos/typed-node-uuid#a2ad36f2802416729eaad89559d76e0b03ba673c",
+    "react-redux": "registry:npm/react-redux#4.4.0+20160207114942",
+    "redux": "registry:npm/redux#3.0.6+20160214194820"
   },
   "ambientDependencies": {
     "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#9a2c50ea846ee6ae36feaea0accc77ae7b08a748",
@@ -45,10 +47,8 @@
     "qs": "registry:dt/qs#0.0.0+20160317120654",
     "react": "github:DefinitelyTyped/DefinitelyTyped/react/react.d.ts#f407264835650f5f38d4bb2c515a79e7a835916b",
     "react-dom": "github:DefinitelyTyped/DefinitelyTyped/react/react-dom.d.ts#ca5bfe76d2d9bf6852cbc712d9f3e0047c93486e",
-    "react-redux": "github:DefinitelyTyped/DefinitelyTyped/react-redux/react-redux.d.ts#a513c4df6eb8505da8eef432891c8b69b73535d9",
     "react-router": "github:DefinitelyTyped/DefinitelyTyped/react-router/react-router.d.ts#07feae11780495b90145451d48d4a50923762ef1",
     "react-router-redux": "github:DefinitelyTyped/DefinitelyTyped/react-router-redux/react-router-redux.d.ts#e6236157ce37fe1c8f2e3babd0bee364d8788c8b",
-    "redux": "github:DefinitelyTyped/DefinitelyTyped/redux/redux.d.ts#a820bbdead70913f0c750802b367ed54cb99b442",
     "redux-logger": "github:DefinitelyTyped/DefinitelyTyped/redux-logger/redux-logger.d.ts#299be13624c3998ca5ca0f146202723e25eeb465",
     "redux-thunk": "github:DefinitelyTyped/DefinitelyTyped/redux-thunk/redux-thunk.d.ts#75249b97104d00c1ca2451ac29369009a5f2b101",
     "source-map": "github:DefinitelyTyped/DefinitelyTyped/source-map/source-map.d.ts#1c572762b93d4b059d89339867edf54946176361",

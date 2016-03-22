@@ -56,6 +56,7 @@
     "./data/experiences/hobbies/projects/2014-12_2014-10_resume.mnigh.com.tsx",
     "./data/experiences/hobbies/projects/2015-05_2014-04_android-app.tsx",
     "./data/experiences/hobbies/projects/2015-07_2015-07_resume.mnigh.com.tsx",
+    "./data/experiences/icons.tsx",
     "./data/experiences/index.tsx",
     "./data/experiences/index.types.tsx",
     "./data/index.spec.tsx",
@@ -129,13 +130,11 @@
     "./typings/browser/ambient/parse-glob/index.d.ts",
     "./typings/browser/ambient/qs/index.d.ts",
     "./typings/browser/ambient/react-dom/index.d.ts",
-    "./typings/browser/ambient/react-redux/index.d.ts",
     "./typings/browser/ambient/react-router-redux/index.d.ts",
     "./typings/browser/ambient/react-router/index.d.ts",
     "./typings/browser/ambient/react/index.d.ts",
     "./typings/browser/ambient/redux-logger/index.d.ts",
     "./typings/browser/ambient/redux-thunk/index.d.ts",
-    "./typings/browser/ambient/redux/index.d.ts",
     "./typings/browser/ambient/source-map/index.d.ts",
     "./typings/browser/ambient/superagent/index.d.ts",
     "./typings/browser/ambient/uglify-js/index.d.ts",
@@ -149,7 +148,9 @@
     "./typings/browser/definitions/lodash/index.d.ts",
     "./typings/browser/definitions/mkdirp/index.d.ts",
     "./typings/browser/definitions/moment/index.d.ts",
-    "./typings/browser/definitions/node-uuid/index.d.ts"
+    "./typings/browser/definitions/node-uuid/index.d.ts",
+    "./typings/browser/definitions/react-redux/index.d.ts",
+    "./typings/browser/definitions/redux/index.d.ts"
   ],
   "exclude": [
     "./node_modules",

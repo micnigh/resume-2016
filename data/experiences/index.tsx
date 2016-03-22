@@ -2,9 +2,10 @@ import { NormalizedExperience, NormalizedProject, Tag } from "./index.types";
 import { merge } from "lodash";
 import moment from "moment";
 import uuid from "node-uuid";
+import iconMap from "./icons";
 
 let formatTime = (time) => {
-  return typeof time === "boolean" ? time : moment(time).format();
+  return time === `` ? time : moment(time).format();
 };
 
 export let createExperience = (options: NormalizedExperience): NormalizedExperience => {
@@ -39,7 +40,7 @@ export let createTags = (duration: string, tags: string[]): string[] => {
       });
       return tag;
     } else {
-      return createTag({ name: t, duration });
+      return createTag({ name: t, duration, icon: iconMap[t] });
     }
   }).map(t => t.id);
 };

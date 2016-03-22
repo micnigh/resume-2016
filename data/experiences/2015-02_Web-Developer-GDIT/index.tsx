@@ -6,8 +6,8 @@ import { createExperience, createTags } from "../";
 export let title = `Web Developer - NPS CED3 - GDIT`;
 
 export let start = `2015-02`;
-export let end = false;
-export let duration = moment.duration(moment().diff(moment(start))).toJSON();
+export let end = ``;
+export let duration = ``;
 
 export let summaryMarkdown = `
 Build and maintain CED3 web applications to enhance course development and delivery at the Naval Postgraduate School in Monterey.
@@ -33,11 +33,11 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `gulp`,
-  `nodejs`,
+  `Gulp`,
+  `NodeJS`,
   `Docker`,
-  `java`,
-  `backbone`,
+  `Java`,
+  `Backbone`,
 ];
 
 export let projects = ([
