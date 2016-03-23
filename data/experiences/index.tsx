@@ -9,12 +9,18 @@ let formatTime = (time) => {
 };
 
 export let createExperience = (options: NormalizedExperience): NormalizedExperience => {
-  return merge({
+  let experience = merge({
     id: uuid.v4(),
   }, options, {
     start: formatTime(options.start),
     end: formatTime(options.end),
   });
+  if (typeof experience.portfolio !== "undefined") {
+    experience.portfolio = merge({
+      hoverTitle: `View snapshot of ${experience.title}`
+    }, experience.portfolio);
+  }
+  return experience;
 };
 
 let projectsById = {};
@@ -26,6 +32,11 @@ export let createProject = (options: NormalizedProject): NormalizedProject => {
     end: formatTime(options.end),
   });
   projectsById[project.id] = project;
+  if (typeof project.portfolio !== "undefined") {
+    project.portfolio = merge({
+      hoverTitle: `View snapshot of ${project.title}`
+    }, project.portfolio);
+  }
   return project;
 };
 

@@ -11,6 +11,13 @@ export class Project extends Component<{ project: ProjectType }, any> {
       <div id="project" className="experience sub-experience">
         <div className="header">
           <h5 className="title sub-title">{project.title}</h5>
+          { typeof project.portfolio === "undefined" ? null : (
+            <div className={`link visible-sm visible-md visible-lg visible-print`}>
+              <a href={`${project.portfolio.link}`} title={`${project.portfolio.hoverTitle}`}>
+                <i className={`fa fa-link`}/>
+              </a>
+            </div>
+          )}
           <div className="icons">
             { project.icons.map((i, index) => {
               console.log(project.title);
