@@ -23,10 +23,11 @@ export let tags = createTags(duration, [
   `AWS CloudFront`,
   `HTML`,
   `CSS`,
+  `Java`,
 ]);
 
 export let icons = [
-  `java`,
+  `Java`,
 ];
 
 export let portfolio = {

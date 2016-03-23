@@ -49,8 +49,8 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `rails`,
-  `wordpress`,
+  `Rails`,
+  `Wordpress`,
 ];
 
 export let portfolio = {

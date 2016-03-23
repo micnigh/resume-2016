@@ -27,9 +27,9 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `gulp`,
-  `nodejs`,
-  `bower`,
+  `Gulp`,
+  `NodeJS`,
+  `Bower`,
 ];
 
 export let portfolio = undefined;

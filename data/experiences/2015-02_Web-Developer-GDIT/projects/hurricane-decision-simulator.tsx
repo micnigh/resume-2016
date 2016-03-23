@@ -24,16 +24,16 @@ export let tags = createTags(duration, [
   `HTML`,
   `CSS`,
   `socket.io`,
-  `java`,
+  `Java`,
   `matlab`,
 ]);
 
 export let icons = [
-  `gulp`,
-  `nodejs`,
+  `Gulp`,
+  `NodeJS`,
   `Docker`,
-  `backbone`,
-  `java`,
+  `Backbone`,
+  `Java`,
 ];
 
 export let portfolio = {

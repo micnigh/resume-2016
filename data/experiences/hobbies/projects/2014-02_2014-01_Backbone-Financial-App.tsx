@@ -29,10 +29,10 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `grunt`,
-  `nodejs`,
-  `backbone`,
-  `mongodb`,
+  `Grunt`,
+  `NodeJS`,
+  `Backbone`,
+  `MongoDB`,
 ];
 
 export let portfolio = undefined;

@@ -29,6 +29,7 @@ export let tags = createTags(duration, [
   `Coffeescript`,
   `JQuery`,
   `Vagrant`,
+  `Linux`,
   `lxc`,
   `zsh`,
   `oh-my-zsh`,
@@ -38,9 +39,9 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `rails`,
-  `wordpress`,
-  `linux`,
+  `Rails`,
+  `Wordpress`,
+  `Linux`,
 ];
 
 export let portfolio = undefined;

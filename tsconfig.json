@@ -14,6 +14,7 @@
     "./client/js/src/page/home/component/education.tsx",
     "./client/js/src/page/home/component/header/index.tsx",
     "./client/js/src/page/home/component/summary.tsx",
+    "./client/js/src/page/home/container/experience/component/project.tsx",
     "./client/js/src/page/home/container/experience/index.tsx",
     "./client/js/src/page/home/container/skills/index.tsx",
     "./client/js/src/page/home/index.tsx",

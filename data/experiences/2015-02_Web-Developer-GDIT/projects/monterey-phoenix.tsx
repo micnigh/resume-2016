@@ -28,10 +28,10 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `gulp`,
-  `nodejs`,
+  `Gulp`,
+  `NodeJS`,
   `Docker`,
-  `backbone`,
+  `Backbone`,
 ];
 
 export let portfolio = {

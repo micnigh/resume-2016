@@ -29,9 +29,9 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `gulp`,
-  `nodejs`,
-  `bower`,
+  `Gulp`,
+  `NodeJS`,
+  `Bower`,
   `Docker`,
 ];
 

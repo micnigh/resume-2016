@@ -32,7 +32,7 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `java`,
+  `Java`,
 ];
 
 export let portfolio = {

@@ -13,7 +13,7 @@ export default {
   Foundation: "images/icons/foundation/foundation-original.svg",
   Angular: "images/icons/angularjs/angularjs-original.svg",
   Backbone: "images/icons/backbonejs/backbonejs-original.svg",
-  WordPress: "images/icons/wordpress/wordpress-plain.svg",
+  Wordpress: "images/icons/wordpress/wordpress-plain.svg",
   MYSQL: "images/icons/mysql/mysql-original.svg",
   PostgresSQL: "images/icons/postgresql/postgresql-original.svg",
   MongoDB: "images/icons/mongodb/mongodb-original.svg",

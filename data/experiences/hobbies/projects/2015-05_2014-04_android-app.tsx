@@ -20,13 +20,14 @@ export let tags = createTags(duration, [
   `Docker`,
   `Android`,
   `socket.io`,
+  `Java`,
 ]);
 
 export let icons = [
-  `nodejs`,
+  `NodeJS`,
   `Docker`,
-  `java`,
-  `android`,
+  `Java`,
+  `Android`,
 ];
 
 export let portfolio = undefined;

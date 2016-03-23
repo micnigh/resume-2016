@@ -3,23 +3,27 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { find } from "lodash";
 
-import { Experience as ExperienceType } from "../../../../../../../data/experiences/index.types";
+import { Experience as ExperienceType, Project as ProjectType } from "../../../../../../../data/experiences/index.types";
 import { denormalize as denormalizeExperience } from "../../../../../../../data/normalizr/denormalizr/experience";
+
+import Project from "./component/project";
+
+let sortProject = (a: ProjectType, b: ProjectType) => {
+  if (a.end !== `` && b.end !== ``) {
+    return moment(b.end).isAfter(moment(a.end)) ? 1 : -1;
+  } else {
+    if (b.start === `` && b.end === ``) {
+      return -1;
+    }
+    return b.end === `` ? 1 : -1;
+  }
+};
 
 let mapStateToProps = (state, ownProps) => {
   let experiences = Object
     .keys(state.entities.experiences)
     .map(id => denormalizeExperience(id, state))
-    .sort((a, b) => {
-      if (a.end !== `` && b.end !== ``) {
-        return moment(b.end).isAfter(moment(a.end)) ? 1 : -1;
-      } else {
-        if (b.start === `` && b.end === ``) {
-          return -1;
-        }
-        return b.end === `` ? 1 : -1;
-      }
-    });
+    .sort(sortProject);
   return {
     experiences,
   };
@@ -29,7 +33,6 @@ let mapStateToProps = (state, ownProps) => {
 export class Experience extends Component<{ experiences: ExperienceType[] }, any> {
   render() {
     let { experiences } = this.props;
-    console.log(JSON.stringify(experiences, null, 2));
     return (
       <div id="experience" className="row page-break-before">
         <h2 className="title">Experience</h2>
@@ -52,9 +55,13 @@ export class Experience extends Component<{ experiences: ExperienceType[] }, any
                 }
               </div>
               <div className="clearfix" />
-              <div className="col-xs-offset-1" dangerouslySetInnerHTML={{__html: e.summaryHtml}}>
-
-              </div>
+              <div className="col-xs-offset-1 content" dangerouslySetInnerHTML={{__html: e.summaryHtml}}/>
+              { e.projects.length === 0 ? null : (
+                <div className={`col-xs-offset-1`}>
+                  <h4 className={`title sub-title`}>Projects</h4>
+                  { e.projects.sort(sortProject).map(p => <Project project={p}/>) }
+                </div>
+              ) }
             </div>
           );
         })}

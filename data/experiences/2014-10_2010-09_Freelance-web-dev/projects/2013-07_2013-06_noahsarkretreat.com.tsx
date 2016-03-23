@@ -5,8 +5,8 @@ import { createProject, createTags } from "../../";
 
 export let title = `noahsarkretreat.com`;
 
-export let start = `2013-07`;
-export let end = `2013-06`;
+export let start = `2013-06`;
+export let end = `2013-07`;
 export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
@@ -35,8 +35,8 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `rails`,
-  `wordpress`,
+  `Rails`,
+  `Wordpress`,
 ];
 
 export let portfolio = {

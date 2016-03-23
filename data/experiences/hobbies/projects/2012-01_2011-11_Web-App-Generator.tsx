@@ -28,7 +28,7 @@ export let tags = createTags(duration, [
 ]);
 
 export let icons = [
-  `nodejs`,
+  `NodeJS`,
 ];
 
 export let portfolio = undefined;
