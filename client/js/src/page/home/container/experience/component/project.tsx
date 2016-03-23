@@ -20,8 +20,6 @@ export class Project extends Component<{ project: ProjectType }, any> {
           )}
           <div className="icons">
             { project.icons.map((i, index) => {
-              console.log(project.title);
-              console.log(i);
               return <img key={index} src={find(project.tags, t => t.name === i).icon} className={`${i} icon`} title={i} />;
             }) }
           </div>
