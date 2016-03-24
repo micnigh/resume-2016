@@ -59,7 +59,7 @@ export class Experience extends Component<{ experiences: ExperienceType[] }, any
               { e.projects.length === 0 ? null : (
                 <div className={`col-xs-offset-1`}>
                   <h4 className={`title sub-title`}>Projects</h4>
-                  { e.projects.sort(sortProject).map(p => <Project project={p}/>) }
+                  { e.projects.sort(sortProject).map((p, index) => <Project key={index} project={p}/>) }
                 </div>
               ) }
             </div>
