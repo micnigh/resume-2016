@@ -11,6 +11,7 @@
   },
   "ambientDependencies": {
     "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#9a2c50ea846ee6ae36feaea0accc77ae7b08a748",
+    "bootstrap": "registry:dt/bootstrap#3.3.5+20160316155526",
     "browser-sync": "github:DefinitelyTyped/DefinitelyTyped/browser-sync/browser-sync.d.ts#d9b5b35ba3a79ac778c5890531393442439df5dd",
     "chokidar": "github:DefinitelyTyped/DefinitelyTyped/chokidar/chokidar.d.ts#ae81e340a9e897167cfef3122a5a3aed04293814",
     "classnames": "github:DefinitelyTyped/DefinitelyTyped/classnames/classnames.d.ts#8287192198a14bcb31533afe381aa24ac7eed4c6",
@@ -35,6 +36,7 @@
     "gulp-typescript": "github:DefinitelyTyped/DefinitelyTyped/gulp-typescript/gulp-typescript.d.ts#960fd659b456e2fb5d23c52794ffdc56b09796cf",
     "gulp-watch": "github:DefinitelyTyped/DefinitelyTyped/gulp-watch/gulp-watch.d.ts#6d72f60cc0b9449caac11817ea9448c977f7793c",
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#dd638012d63e069f2c99d06ef4dcc9616a943ee4",
+    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
     "karma": "github:DefinitelyTyped/DefinitelyTyped/karma/karma.d.ts#02dd2f323e1bcb8a823269f89e0909ec9e5e38b5",
     "marked": "registry:dt/marked#0.0.0+20160316155526",
     "merge-stream": "github:DefinitelyTyped/DefinitelyTyped/merge-stream/merge-stream.d.ts#dc2c61c4b295d88befeba7fa542582d0e8ec85dc",

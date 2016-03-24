@@ -54,6 +54,8 @@ let config: GulpConfig = {
           "superagent",
           "normalizr",
           "node-uuid",
+          "jquery",
+          "bootstrap",
         ].concat(isDev ?
             // for better performance, add hmr libs
             [
@@ -68,6 +70,14 @@ let config: GulpConfig = {
           :
             []
         ),
+        webpack: {
+          plugins: [
+              new webpack.ProvidePlugin({
+                 $: "jquery",
+                 jQuery: "jquery"
+             }),
+          ],
+        }
       },
       {
         taskName: "testLib",
