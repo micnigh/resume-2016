@@ -70,15 +70,22 @@ export default function generateConfig (config: GulpConfig, build: JSBuildConfig
       ]);
     });
 
+  if (typeof build.webpack !== "undefined" && typeof build.webpack.module !== "undefined") {
+    let loaders = build.webpack.module.loaders || [];
+    webpackConfig.module.loaders = webpackConfig.module.loaders.concat(loaders);
+    let noParse = build.webpack.module.noParse || [];
+    webpackConfig.module.noParse = webpackConfig.module.noParse.concat(noParse);
+  }
+
+  if (typeof build.webpack !== "undefined" && typeof build.webpack.plugins !== "undefined") {
+    webpackConfig.plugins = webpackConfig.plugins.concat(build.webpack.plugins);
+  }
+
   let browserSyncInstances = typeof build.browsersync !== "undefined" ? build.browsersync : [];
   let browserSyncSnippets = browserSyncInstances.map(i => {
     let browserSyncConfig = config.watch.browsersync.find(b => b.instance === i);
     return `http://localhost:${browserSyncConfig.port}/browser-sync/browser-sync-client.js`;
   });
-
-  if (typeof build.webpack !== "undefined" && typeof build.webpack.plugins !== "undefined") {
-    webpackConfig.plugins = webpackConfig.plugins.concat(build.webpack.plugins);
-  }
 
   webpackConfig.plugins.push(new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify(config.isDev ? "development" : "production"),

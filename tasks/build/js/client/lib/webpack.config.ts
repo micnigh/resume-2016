@@ -36,13 +36,15 @@ export default function generateConfig (config: GulpConfig, build: JSLibConfig) 
     }),
   ]);
 
-  if (typeof build.webpack !== "undefined") {
-    if (typeof build.webpack.module !== "undefined") {
-      let loaders = build.webpack.module.loaders || [];
-      webpackConfig.module.loaders = webpackConfig.module.loaders.concat(loaders);
-      let noParse = build.webpack.module.noParse || [];
-      webpackConfig.module.noParse = webpackConfig.module.noParse.concat(noParse);
-    }
+  if (typeof build.webpack !== "undefined" && typeof build.webpack.module !== "undefined") {
+    let loaders = build.webpack.module.loaders || [];
+    webpackConfig.module.loaders = webpackConfig.module.loaders.concat(loaders);
+    let noParse = build.webpack.module.noParse || [];
+    webpackConfig.module.noParse = webpackConfig.module.noParse.concat(noParse);
+  }
+
+  if (typeof build.webpack !== "undefined" && typeof build.webpack.plugins !== "undefined") {
+    webpackConfig.plugins = webpackConfig.plugins.concat(build.webpack.plugins);
   }
 
   let browserSyncInstances = typeof build.browsersync !== "undefined" ? build.browsersync : [];
