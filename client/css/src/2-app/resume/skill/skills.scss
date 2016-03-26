@@ -6,53 +6,86 @@ $skills-graph-height : ($num-skills)*$skill-margin-bottom + ($num-skills*$skill-
 
 #skills-graph {
   //height : 371px;
-  height : $skills-graph-height;
+  //height : $skills-graph-height;
 }
 
-.skill-graph-bar {
-  fill             : #000000;
-  stroke-opacity   : 0.50;
-  stroke-width     : 0;
+.skill-graph {
+  position: relative;
+  margin: $font-size-base * 2.5 0px;
+  width: 100%;
 }
 
-.skill-graph-text {
-  fill : #ffffff;
+.skill-graph-bars {
+  z-index: 10;
+  position: relative;
+  .skill-graph-bar {
+    background-color: #000000;
+    margin-top: $font-size-base * 1/8;
+    padding: 0px 0px;
+    text-align: right;
+    vertical-align: middle;
+    padding-top: 1px;
+    padding-right: 2px;
+    .skill-graph-bar-title {
+      color: #ffffff;
+      font-size: $font-size-base * 1.35;
+      @extend .primary-font;
+    }
+  }
 }
 
-.skill-graph-bar.guideline {
-  fill             : #888;
-}
-
-.skill-graph-text.guideline {
-  fill             : #888;
-}
-
-.skill-graph-print-duration-text {
-  fill    : #a0a0a0;
-  opacity : 1.0 !important;
+.skill-graph-guidelines {
+  position: absolute;
+  width: 100%;
+  height: calc(100% + #{$font-size-base * 2});
+  margin-top: $font-size-base * -1;
+  z-index: 5;
+  .skill-graph-guideline {
+    position: absolute;
+    height: 100%;
+    .skill-graph-guideline-line {
+      position: absolute;
+      background-color: #888;
+      width: 0px;
+      padding: 0px 1px;
+      height: 100%;
+    }
+    .skill-graph-guideline-label {
+      position: absolute;
+      white-space: nowrap;
+      color: #888;
+      @extend .primary-font;
+      font-size: $font-size-base;
+      &.top {
+        top: $font-size-base * -1.25;
+      }
+      &.bottom {
+        bottom: $font-size-base * -1.25;
+      }
+      &.single {
+        margin-left: $font-size-base * -1.7;
+      }
+      &.plural {
+        margin-left: $font-size-base * -1.8;
+      }
+    }
+  }
 }
 
 @media print {
 
-  .skill-graph-bar {
-    fill             : #c5c5c5;
-    stroke-opacity   : 0.50;
-    stroke-width     : 0;
+  .skill-graph-bars {
+    & .skill-graph-bar {
+      background-color: #c5c5c5 !important;
+    }
   }
 
-  .skill-graph-bar.guideline {
-    fill             : #000;
-  }
-  .skill-graph-text.guideline {
-    fill             : #000;
-  }
-
-  .skill-graph-text {
-    fill : #000;
-  }
-
-  .skill-graph-print-duration-text {
-    fill    : #a0a0a0;
-    opacity : 1.0 !important;
+  .skill-graph-guidelines {
+    & .skill-graph-guideline-line {
+      background-color: #000 !important;
+    }
+    & .skill-graph-guideline-label {
+      color: #000 !important;
+    }
   }
 }

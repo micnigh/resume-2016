@@ -51,6 +51,9 @@ export interface Tag {
   /** path to image icon */
   icon: string;
 
+  /** abbreviation - used in skills graph when limited width available */
+  shorthand?: string;
+
   /** moment.duration().toJSON() */
   duration: string;
 };
