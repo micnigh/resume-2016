@@ -20,6 +20,29 @@ let tagsToDisplay = [
 ];
 
 export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
+
+  constructor(props) {
+    super(props);
+    this.handleResize = this.handleResize.bind(this);
+  }
+
+  handleResize(e) {
+    this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
+  }
+
+  componentWillMount() {
+    if (process.env.JS_ENV === "browser") {
+      this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
+      window.addEventListener("resize", this.handleResize);
+    }
+  }
+
+  componentWillUnmount() {
+    if (process.env.JS_ENV === "browser") {
+      window.removeEventListener("resize", this.handleResize);
+    }
+  }
+
   render() {
     let { tags } = this.props;
     tags = tagsToDisplay.map(name => tags.find(t => t.name === name));
@@ -53,12 +76,12 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
             let percentageWidth = Math.floor(normalizedDuration * 100);
             let shorthand = false;
             if (process.env.JS_ENV === "browser") {
-              let pixelWidth = Math.floor(percentageWidth * (window.innerWidth || document.body.clientWidth));
-              shorthand = pixelWidth < 100;
+              let pixelWidth = Math.floor(normalizedDuration * this.state.windowWidth);
+              shorthand = pixelWidth < 120;
             }
             return (
               <div className={`skill-graph-bar`} key={index} style={{ width: `${percentageWidth}%` }}>
-                <span className={`skill-graph-bar-title`}>{ percentageWidth > 10 ? t.name : t.shorthand }</span>
+                <span className={`skill-graph-bar-title`}>{  shorthand ? t.shorthand : t.name }</span>
               </div>
             );
           })}
