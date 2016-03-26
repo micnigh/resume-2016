@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { find } from "lodash";
+import { debounce } from "lodash";
 
 import { Tag } from "../../../../../../../../../data/experiences/index.types";
 
@@ -24,6 +24,7 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
   constructor(props) {
     super(props);
     this.handleResize = this.handleResize.bind(this);
+    this.handleResize = debounce(this.handleResize, 250);
   }
 
   handleResize(e) {
