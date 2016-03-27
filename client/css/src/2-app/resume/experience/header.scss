@@ -34,8 +34,13 @@
     For now - we will override.
   */
   @media print {
-    .icon {
-      max-width: 1.2 * $font-size-base !important;
+    .link {
+      display: inline-block !important;
+    }
+    .icons {
+      .icon {
+        max-width: 1.2 * $font-size-base !important;
+      }
     }
   }
 
