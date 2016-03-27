@@ -9,9 +9,7 @@ export let end = `2007-01`;
 export let duration = moment.duration(moment(end).endOf(`month`).diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
-Constructed art gallery website using a variety of tools, including GWT, JQuery, and Typeface.  Emphasis on design, compatibility, and performance.  Expanded GWT to allow exact positioning, shadows, custom fonts, and history support.  Worked directly with the client to achieve the exact look and feel they needed.
-
-Maintained and added new content coinciding with launch events for a few years; This included adding new collections, sending out newsletters, and posting to various social media.  Assisted in migration to ecommerce by importing existing products into new Shopify site in 2014.
+Built a Real Estate PHP/MYSQL website in a small team.  Created a blueprint drawing tool using an applet combined with a DOJO front end.  Utilized XML via JSON to communicate between server and client applications.  Also responsible for building and maintaining LAMP servers and virtual machines used by developers.
 `;
 
 export let tags = createTags(duration, [
