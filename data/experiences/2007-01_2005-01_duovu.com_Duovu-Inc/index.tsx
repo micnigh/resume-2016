@@ -6,7 +6,7 @@ export let title = `duovu.com - Duovu Inc`;
 
 export let start = `2005-01`;
 export let end = `2007-01`;
-export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment(end).endOf(`month`).diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
 Constructed art gallery website using a variety of tools, including GWT, JQuery, and Typeface.  Emphasis on design, compatibility, and performance.  Expanded GWT to allow exact positioning, shadows, custom fonts, and history support.  Worked directly with the client to achieve the exact look and feel they needed.

@@ -6,7 +6,7 @@ export let title = `mnigh.com`;
 
 export let start = `2012-08`;
 export let end = `2012-09`;
-export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment(end).endOf(`month`).diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
 Created web resume using Rails.  Featured custom fonts, mediaquery breakpoints, and a searchable PDF when printed from chrome.

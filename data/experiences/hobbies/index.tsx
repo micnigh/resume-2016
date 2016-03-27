@@ -6,7 +6,7 @@ export let title = `Hobbies`;
 
 export let start = ``;
 export let end = ``;
-export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
+export let duration = moment.duration().toJSON();
 
 export let summaryMarkdown = `
 Interesting projects outside of work.

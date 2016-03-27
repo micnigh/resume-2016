@@ -6,7 +6,7 @@ export let title = `resume.mnigh.com - revisions`;
 
 export let start = `2015-07`;
 export let end = `2015-08`;
-export let duration = moment.duration(moment(end).diff(moment(start))).toJSON();
+export let duration = moment.duration(moment(end).endOf(`month`).diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
 Updated, upgraded, and easier to maintain after working on various Docker and Gulp projects over the last year.
