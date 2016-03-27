@@ -7,7 +7,7 @@ export let title = `Web Developer - NPS CED3 - GDIT`;
 
 export let start = `2015-02`;
 export let end = ``;
-export let duration = ``;
+export let duration = moment.duration(moment().diff(moment(start))).toJSON();
 
 export let summaryMarkdown = `
 Build and maintain CED3 web applications to enhance course development and delivery at the Naval Postgraduate School in Monterey.
@@ -32,13 +32,7 @@ export let tags = createTags(duration, [
   `CSS`,
 ]);
 
-export let icons = [
-  `Gulp`,
-  `NodeJS`,
-  `Docker`,
-  `Java`,
-  `Backbone`,
-];
+export let icons = [];
 
 export let projects = ([
   require("./projects/monterey-phoenix").default,
