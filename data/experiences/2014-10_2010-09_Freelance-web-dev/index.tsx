@@ -28,7 +28,6 @@ export let projects: string[] = ([
   require("./projects/2011-08_2011-07_jenleearts.com").default,
   require("./projects/2012-01_2011-12_jamesdewulf.com").default,
   require("./projects/2012-06_2012-05_teresajanela.com").default,
-  require("./projects/2012-09_2012-08_mnigh.com").default,
   require("./projects/2013-04_2013-02_drbacal.com").default,
   require("./projects/2013-07_2013-06_noahsarkretreat.com").default,
 ] as NormalizedProject[]).map(p => p.id);

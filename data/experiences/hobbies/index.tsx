@@ -22,6 +22,7 @@ export let icons = [
 
 export let projects = ([
   require("./projects/2012-01_2011-11_Web-App-Generator").default,
+  require("./projects/2012-09_2012-08_resume.mnigh.com").default,
   require("./projects/2013-09_2013-04_LXC-Deployment").default,
   require("./projects/2014-02_2014-01_Backbone-Financial-App").default,
   require("./projects/2014-08_2014-07_Docker-Migration").default,

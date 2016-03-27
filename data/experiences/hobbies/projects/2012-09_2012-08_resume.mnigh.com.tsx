@@ -2,7 +2,7 @@ import moment from "moment";
 import { NormalizedProject } from "../../index.types";
 import { createProject, createTags } from "../../";
 
-export let title = `mnigh.com`;
+export let title = `resume.mnigh.com`;
 
 export let start = `2012-08`;
 export let end = `2012-09`;
