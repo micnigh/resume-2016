@@ -7,15 +7,11 @@ import { Tag } from "../../../../../../../../../data/experiences/index.types";
 let tagsToDisplay = [
   "Docker",
   "NodeJS",
-  "Javascript",
   "Backbone",
-  "Coffeescript",
   "Sass",
   "Rails",
-  "Ruby",
   "Java",
   "PHP",
-  "Wordpress",
   "Git",
 ];
 

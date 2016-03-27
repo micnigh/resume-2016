@@ -41,7 +41,21 @@ export class Experience extends Component<{ experiences: ExperienceType[] }, any
             <div key={index} className="experience">
               <div className="header">
                 <h4 className="title">{e.title}</h4>
+                { typeof e.portfolio === "undefined" ? null : (
+                  <div className={`link hidden-ms hidden-xs hidden-sm hidden-md visible-print`}>
+                    <a href={`${e.portfolio.link}`} title={`${e.portfolio.hoverTitle}`} target={`_blank`}>
+                      <i className={`fa fa-link`}/>
+                    </a>
+                  </div>
+                )}
                 <div className="icons">
+                  { typeof e.portfolio === "undefined" ? null : (
+                    <div className={`link visible-ms visible-xs visible-sm visible-md hidden-print`}>
+                      <a href={`${e.portfolio.link}`} title={`${e.portfolio.hoverTitle}`} target={`_blank`}>
+                        <i className={`fa fa-link`}/>
+                      </a>
+                    </div>
+                  )}
                   { e.icons.map((i, index) => {
                     return <img key={index} src={find(e.tags, t => t.name === i).icon} className={`${i} icon`} title={i} />;
                   }) }
