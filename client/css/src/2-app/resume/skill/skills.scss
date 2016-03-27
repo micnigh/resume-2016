@@ -11,7 +11,7 @@ $skills-graph-height : ($num-skills)*$skill-margin-bottom + ($num-skills*$skill-
 
 .skill-graph {
   position: relative;
-  margin: $font-size-base * 2.5 0px;
+  margin: $font-size-base * 3 0px;
   width: 100%;
 }
 
