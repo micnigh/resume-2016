@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import marked from "marked";
+import { renderer } from "../../../../../../data/experiences/";
 
 export class Summary extends Component<any, any> {
   render() {
@@ -21,6 +22,6 @@ Interested in tools that **get the job done** while boosting **productivity**.
 Believe good code is **easy to maintain**, **well tested**, and **easily extended**.
 
 **Big on OSS** - I like knowing how the tools I use work.
-`);
+`, renderer);
 
 export default Summary;

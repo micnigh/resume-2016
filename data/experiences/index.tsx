@@ -5,6 +5,12 @@ import uuid from "node-uuid";
 import tagIconMap from "./tags/icons";
 import tagShorthandMap from "./tags/shorthand";
 
+import marked from "marked";
+export const renderer = new marked.Renderer();
+renderer.link = ( href, title, text ) => {
+  return `<a target="_blank" href="${ href }" title="${title || ""}" >${ text }</a>`;
+};
+
 let formatTime = (time) => {
   return time === `` ? time : moment(time).format();
 };
@@ -15,6 +21,7 @@ export let createExperience = (options: NormalizedExperience): NormalizedExperie
   }, options, {
     start: formatTime(options.start),
     end: formatTime(options.end),
+    summaryHtml: marked(options.summaryMarkdown, { renderer }),
   });
   if (typeof experience.portfolio !== "undefined") {
     experience.portfolio = merge({
@@ -31,6 +38,7 @@ export let createProject = (options: NormalizedProject): NormalizedProject => {
   }, options, {
     start: formatTime(options.start),
     end: formatTime(options.end),
+    summaryHtml: marked(options.summaryMarkdown, { renderer }),
   });
   projectsById[project.id] = project;
   if (typeof project.portfolio !== "undefined") {

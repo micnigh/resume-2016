@@ -1,5 +1,4 @@
 import moment from "moment";
-import marked from "marked";
 import { NormalizedProject } from "../../index.types";
 import { createProject, createTags } from "../../";
 
@@ -39,7 +38,6 @@ export let project: NormalizedProject = createProject({
   duration,
   icons,
   tags,
-  summaryHtml: marked(summaryMarkdown),
   summaryMarkdown,
   portfolio,
 });

@@ -15,7 +15,7 @@ interface ProjectNoRelations {
   icons: string[];
 
   /** html summary */
-  summaryHtml: string;
+  summaryHtml?: string;
 
   /** markdown summary */
   summaryMarkdown: string;

@@ -1,5 +1,4 @@
 import moment from "moment";
-import marked from "marked";
 import { NormalizedExperience, NormalizedProject } from "../index.types";
 import { createExperience, createTags } from "../";
 
@@ -42,7 +41,6 @@ export let experience: NormalizedExperience = createExperience({
   icons,
   tags,
   projects,
-  summaryHtml: marked(summaryMarkdown),
   summaryMarkdown,
 });
 
