@@ -37,7 +37,7 @@ export let icons = [
 ];
 
 export let portfolio = {
-  link: `http://firebird.nps.edu/`,
+  link: `http://eddy.nps.edu/hurricaneSim/`,
   hoverTitle: `View public website`,
 };
 
