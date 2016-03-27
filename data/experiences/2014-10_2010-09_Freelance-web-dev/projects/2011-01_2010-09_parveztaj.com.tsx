@@ -35,7 +35,7 @@ export let icons = [
 ];
 
 export let portfolio = {
-  link: `portfolio/parveztaj/`,
+  link: `http://resume.mnigh.com/portfolio/parveztaj/`,
 };
 
 export let project: NormalizedProject = createProject({
