@@ -9,7 +9,7 @@ export default function generateConfig (config: GulpConfig, build: JSBuildConfig
       filename: "[name].js",
       chunkFilename: "[chunkhash].js",
       path: path.resolve(dest),
-      publicPath: build.hmr ? `http://localhost:${port}${config.baseUrl}js/` : `${config.baseUrl}`,
+      publicPath: build.hmr ? `http://${process.env.HOSTNAME}:${port}${config.baseUrl}js/` : `${config.baseUrl}`,
     },
     externals: {},
     module: {
@@ -55,7 +55,7 @@ export default function generateConfig (config: GulpConfig, build: JSBuildConfig
     .concat([`./${entry}`])
     .map(e => path.resolve(e))
     .concat(config.isDev && build.hmr ? [
-      `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
+      `webpack-hot-middleware/client?path=http://${process.env.HOSTNAME}:${port}/__webpack_hmr`,
     ] : []);
 
   config.js.libs

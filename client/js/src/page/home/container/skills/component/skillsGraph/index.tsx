@@ -12,7 +12,7 @@ let tagsToDisplay = [
   "Rails",
   "Java",
   "PHP",
-  "Git",
+  // "Git",
 ];
 
 export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
