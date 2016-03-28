@@ -27,6 +27,38 @@ gulp watch
  - [typescript] - javascript type support
  - [gulp] - automated build system
 
+# Deployment
+
+```bash
+
+# build production assets
+NODE_ENV=production gulp build
+
+#
+# after building assets
+# connect docker via docker-machine to remote VPS
+#
+docker-compose -f docker-compose.production.yml build && \
+docker-compose -f docker-compose.production.yml run --force-recreate -d
+
+```
+
+## connecting to resume.mnigh.com through docker-machine
+
+```bash
+# connect to VPS at `resume.mnigh.com` as `resume.mnigh.com`, must have passwordless root access
+docker-machine create \
+  --driver=generic \
+  --generic-ip-address=resume.mnigh.com \
+  --generic-ssh-user=root \
+  --generic-ssh-key=$HOME/.ssh/id_rsa \
+  resume.mnigh.com
+
+# connect to machine
+eval $(docker-machine env resume.mnigh.com)
+
+```
+
 # Misc
 
 ## Todos

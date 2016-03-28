@@ -1,6 +1,4 @@
-db:
-  image: mysql:latest
-  env_file:
-    - server/db/development.env
-  ports:
-    - "3306:3306"
+web:
+  build: "."
+  environment:
+    VIRTUAL_HOST: resume.mnigh.com

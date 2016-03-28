@@ -1,0 +1,23 @@
+.git
+.vagrant
+.settings
+.externalToolBuilder
+
+node_modules
+
+# docker files
+docker-compose.yml
+docker-compose.production.yml
+docker-compose*.yml
+
+# misc
+README.md
+
+.tmp/development/
+.tmp/staging/
+
+typings
+
+*.ts
+*.tsx
+*.es6
