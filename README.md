@@ -39,7 +39,7 @@ NODE_ENV=production gulp build
 # connect docker via docker-machine to remote VPS
 #
 docker-compose -f docker-compose.production.yml build && \
-docker-compose -f docker-compose.production.yml run --force-recreate -d
+docker-compose -f docker-compose.production.yml up --force-recreate -d
 
 ```
 

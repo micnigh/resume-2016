@@ -4,3 +4,4 @@ web:
   environment:
     NODE_ENV: production
     VIRTUAL_HOST: resume.mnigh.com
+    VIRTUAL_PATH: /
