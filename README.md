@@ -30,14 +30,12 @@ gulp watch
 # Deployment
 
 ```bash
-
-# build production assets
-NODE_ENV=production gulp build
-
 #
-# after building assets
 # connect docker via docker-machine to remote VPS
+# then run below
 #
+gulp --gulpfile gulpfile.transpile.js build && \
+NODE_ENV=production gulp build && \
 docker-compose -f docker-compose.production.yml build && \
 docker-compose -f docker-compose.production.yml up --force-recreate -d
 
@@ -56,6 +54,21 @@ docker-machine create \
 
 # connect to machine
 eval $(docker-machine env resume.mnigh.com)
+
+```
+
+## npm and low memory
+
+On low memory VPS, such as 512MB node, NPM will need more memory.  If you have free disk space, you can enable swap
+
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+
+```bash
+# enable 4GB swapfile
+fallocate -l 4G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
 
 ```
 
