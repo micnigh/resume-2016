@@ -5,6 +5,7 @@ import { match, RouterContext } from "react-router";
 import chalk from "chalk";
 import config from "../../gulpfile.config";
 import path from "path";
+import moment from "moment";
 
 import { Provider } from "react-redux";
 
@@ -32,6 +33,7 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
       try {
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
+          title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
           content: renderToString(
             <Provider store={store}>
               <RouterContext {...renderProps} />
