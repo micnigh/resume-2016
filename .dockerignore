@@ -21,3 +21,7 @@ typings
 *.ts
 *.tsx
 *.es6
+
+client/.bower_components
+server/public/*/*
+tasks
