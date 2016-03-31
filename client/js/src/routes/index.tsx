@@ -2,12 +2,16 @@ import React from "react";
 import { Route, IndexRoute } from "react-router";
 
 import Base from "../page/base";
-import Home from "../page/home/"
+import Home from "../page/home/";
+import Text from "../page/text/";
 
 export let routes = (
-  <Route path="/" component={Base}>
-    <IndexRoute component={Home}/>
-  </Route>
+  <span>
+    <Route path="/" component={Base}>
+      <IndexRoute component={Home}/>
+    </Route>
+    <Route path="/text/" component={Text}/>
+  </span>
 );
 
 export default routes;

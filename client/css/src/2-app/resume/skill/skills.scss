@@ -9,6 +9,10 @@ $skills-graph-height : ($num-skills)*$skill-margin-bottom + ($num-skills*$skill-
   //height : $skills-graph-height;
 }
 
+.skill-graph-container {
+  overflow-x: hidden;
+}
+
 .skill-graph {
   position: relative;
   margin: $font-size-base * 3 0px;

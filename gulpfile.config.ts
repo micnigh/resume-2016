@@ -56,6 +56,7 @@ let config: GulpConfig = {
           "node-uuid",
           "jquery",
           "bootstrap",
+          "word-wrap",
         ].concat(isDev ?
             // for better performance, add hmr libs
             [

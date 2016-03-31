@@ -4,7 +4,7 @@ import { debounce } from "lodash";
 
 import { Tag } from "../../../../../../../../../data/experiences/index.types";
 
-let tagsToDisplay = [
+export let tagsToDisplay = [
   "Docker",
   "NodeJS",
   "Backbone",

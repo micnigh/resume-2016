@@ -7,11 +7,9 @@ export class Skills extends Component<any, any> {
   render() {
     let { tags } = this.props;
     return (
-      <div id="skills" className="row">
-        <h2 className="title">Skills</h2>
-        <div className="col-xs-offset-1 skill-graph-container">
-          <SkillsGraph tags={tags}/>
-        </div>
+      <div>
+        SKILLS
+        <SkillsGraph tags={tags}/>
       </div>
     );
   }
