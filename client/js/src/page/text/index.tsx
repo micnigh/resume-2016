@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Header from "./component/header/"
 import Summary from "./component/summary";
 import Skills from "./container/skills/";
-// import Experience from "./container/experience/";
+import Experience from "./container/experience/";
 
 export class Text extends Component<any, any> {
   render() {
@@ -13,6 +13,7 @@ export class Text extends Component<any, any> {
           <Header/>
           <Summary/>
           <Skills/>
+          <Experience/>
         </div>
       </div>
     );

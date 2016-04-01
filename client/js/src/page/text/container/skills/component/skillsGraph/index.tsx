@@ -17,8 +17,8 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
     let yearsToRender = moment.duration(maxDuration).asYears();
 
     return (
-      <div id="skill-graph" className={`skill-graph`}>
-        <div className={`skill-graph-guidelines`}>
+      <div>
+        <div>
           {[...Array(Math.floor(yearsToRender)).keys()].map(y => y + 1).sort((a, b) => b - a).map(y => {
             let percentageX = Math.floor((y / yearsToRender) * 100);
             let tagsOverYear = tags.filter(t =>

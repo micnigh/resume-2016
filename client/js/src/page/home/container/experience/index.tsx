@@ -8,7 +8,7 @@ import { denormalize as denormalizeExperience } from "../../../../../../../data/
 
 import Project from "./component/project";
 
-let sortProject = (a: ProjectType, b: ProjectType) => {
+export let sortProject = (a: ProjectType, b: ProjectType) => {
   if (a.end !== `` && b.end !== ``) {
     return moment(b.end).isAfter(moment(a.end)) ? 1 : -1;
   } else {
@@ -19,7 +19,7 @@ let sortProject = (a: ProjectType, b: ProjectType) => {
   }
 };
 
-let mapStateToProps = (state, ownProps) => {
+export let mapStateToProps = (state, ownProps) => {
   let experiences = Object
     .keys(state.entities.experiences)
     .map(id => denormalizeExperience(id, state))

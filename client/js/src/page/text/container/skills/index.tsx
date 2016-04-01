@@ -8,7 +8,9 @@ export class Skills extends Component<any, any> {
     let { tags } = this.props;
     return (
       <div>
-        SKILLS
+        <div dangerouslySetInnerHTML={{__html: `SKILLS
+
+`}} />
         <SkillsGraph tags={tags}/>
       </div>
     );
