@@ -11,6 +11,7 @@ import Project from "./component/project";
 import { sortProject, mapStateToProps } from "../../../home/container/experience/index";
 
 let wrap = require("word-wrap");
+
 @connect(mapStateToProps)
 export class Experience extends Component<{ experiences?: ExperienceType[] }, any> {
   render() {
@@ -30,9 +31,15 @@ export class Experience extends Component<{ experiences?: ExperienceType[] }, an
                 <div dangerouslySetInnerHTML={{__html: `\n    ${ e.start !== `` ? moment(e.start).format("YYYY-MM") : "present" } to ${ e.end !== `` ? moment(e.end).format("YYYY-MM") : "present" }` }} />
               }
               <div dangerouslySetInnerHTML={{__html: `\n`}} />
-              <div dangerouslySetInnerHTML={{__html: `${wrap(e.summaryMarkdown.replace(/\n\n/g,"\n").replace(/\[(.*?)\]\(.*?\)/g,"$1"), { indent: "      ", width: 74 })}` }} />
+              <div dangerouslySetInnerHTML={{__html: `${wrap(e.summaryMarkdown.replace(/\n\n/g,"\n").replace(/\[(.*?)\]\(.*?\)/g,"$1"), { indent: "      ", width: 68 })}` }} />
               { e.icons.length === 0 ? null : <div dangerouslySetInnerHTML={{__html: `\n        ${e.icons.join(" ")}` }}/> }
               <div dangerouslySetInnerHTML={{__html: `\n`}} />
+              { e.projects.length === 0 ? null : (
+                <div>
+                <div dangerouslySetInnerHTML={{__html: `      PROJECTS\n\n`}}/>
+                { e.projects.sort(sortProject).map((p, index) => <Project key={index} project={p}/>) }
+                </div>
+              ) }
             </div>
         );})}
       </div>
