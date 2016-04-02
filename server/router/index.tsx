@@ -14,12 +14,15 @@ let htmlTemplate = require("../templates/index.html");
 export let router = express.Router({ mergeParams: true });
 
 router.get(`${config.baseUrl}*`, (req, res, next) => {
-  let store = require("../../client/js/src/store/").default;
-  let routes = require("../../client/js/src/routes/").default;
   if (config.isDev) {
     // always use latest version of module each request
     clearModuleCacheForSharedModules();
   }
+
+  let initialState = require("../../client/js/src/store/sample/").default;
+  let { initStore } = require("../../client/js/src/store/");
+  let store = initStore(initialState);
+  let routes = require("../../client/js/src/routes/").default;
 
   match({
     routes,
