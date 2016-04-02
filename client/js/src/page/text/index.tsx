@@ -4,6 +4,7 @@ import Header from "./component/header/"
 import Summary from "./component/summary";
 import Skills from "./container/skills/";
 import Experience from "./container/experience/";
+import Education from "./component/education";
 
 export class Text extends Component<any, any> {
   render() {
@@ -14,6 +15,7 @@ export class Text extends Component<any, any> {
           <Summary/>
           <Skills/>
           <Experience/>
+          <Education/>
         </div>
       </div>
     );
