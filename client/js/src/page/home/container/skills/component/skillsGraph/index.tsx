@@ -8,11 +8,13 @@ export let tagsToDisplay = [
   "Docker",
   "NodeJS",
   "Backbone",
+  "React",
+  "Redux",
   "Sass",
   "Rails",
   "Java",
   "PHP",
-  // "Git",
+  "Typescript",
 ];
 
 export class SkillsGraph extends Component<{ tags: Tag[] }, any> {

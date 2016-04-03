@@ -15,7 +15,7 @@ Responsibilities include managing time between multiple projects, creating autom
 
 Backends in Java Wicket or NodeJs Express with Docker deployments using the [twelve-factor app](http://12factor.net/) model.
 
-Frontends with Backbone for MVC, gulp for automated builds, and Browserify for modularized code.
+Frontends with Backbone for MVC, Gulp for automated builds, and Browserify for modularized code.
 `;
 
 export let tags = createTags(duration, [
@@ -34,6 +34,7 @@ export let tags = createTags(duration, [
 export let icons = [];
 
 export let projects = ([
+  require("./projects/post-assess").default,
   require("./projects/monterey-phoenix").default,
   require("./projects/hurricane-decision-simulator").default,
 ] as NormalizedProject[]).map(p => p.id);

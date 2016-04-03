@@ -31,6 +31,10 @@ export let projects = ([
   require("./projects/2014-12_2014-10_resume.mnigh.com").default,
   require("./projects/2015-05_2014-04_android-app").default,
   require("./projects/2015-07_2015-07_resume.mnigh.com").default,
+  require("./projects/2015-10_2015-10_boilerplate-gulp-generic").default,
+  require("./projects/2015-11_2015-10_yet-another-isomorphic-blog").default,
+  require("./projects/2016-02_2016-01_boilerplate-isomorphic-typescript").default,
+  require("./projects/2016-04_2016-02_resume.mnigh.com").default,
 ] as NormalizedProject[]).map(p => p.id);
 
 export let experience: NormalizedExperience = createExperience({

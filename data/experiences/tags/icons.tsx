@@ -23,4 +23,5 @@ export default {
   Android: "images/icons/android/android-original.svg",
   Linux: "images/icons/linux/linux-original.svg",
   Git: "images/icons/git/git-original.svg",
+  React: "images/icons/react/react-original.svg",
 }
