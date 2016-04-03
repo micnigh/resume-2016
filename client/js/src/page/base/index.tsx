@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import $ from "jquery";
+
+import { enableTooltip } from "../../misc/tooltip";
 
 export class Base extends Component<any, any> {
   componentDidMount () {
-    $("[title]", this.refs.page).tooltip({
-      container: `body`,
-      placement: (tip, e) => {
-        return $(e).data("tooltip-placement") || "top";
-      },
-    });
+    enableTooltip(this.refs[`page`] as HTMLElement);
   }
 
   render() {

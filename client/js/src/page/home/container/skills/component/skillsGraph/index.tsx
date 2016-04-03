@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import moment from "moment";
 import { debounce } from "lodash";
 
+import { enableTooltip, disableTooltip } from "../../../../../../misc/tooltip";
 import { Tag } from "../../../../../../../../../data/experiences/index.types";
 
 export let tagsToDisplay = [
@@ -26,14 +27,48 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
   }
 
   handleResize(e) {
+    let { tags } = this.props;
+    tags = tagsToDisplay.map(name => tags.find(t => t.name === name));
+
     this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
+
+    let fullTagWidth = this.state.fullTagWidth || {};
+    if (typeof this.state.fullTagWidth === "undefined") {
+      tags.forEach(t => {
+        let nodeTitle = this.refs[`${t.name}Title`] as HTMLElement;
+        fullTagWidth[t.name] = nodeTitle.offsetWidth;
+      });
+      this.setState({ fullTagWidth });
+    }
+
+    let isTagShorthand = {};
+    tags.forEach(t => {
+      let nodeBar = this.refs[`${t.name}Bar`] as HTMLElement;
+      isTagShorthand[t.name] = nodeBar.offsetWidth < fullTagWidth[t.name] ? true : false;
+    });
+    this.setState({ isTagShorthand });
   }
 
   componentWillMount() {
     if (process.env.JS_ENV === "browser") {
       this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
       window.addEventListener("resize", this.handleResize);
+      this.handleResize(undefined);
     }
+  }
+
+  componentDidUpdate() {
+    let { tags } = this.props;
+    tags = tagsToDisplay.map(name => tags.find(t => t.name === name));
+    tags.forEach(t => {
+      let nodeBar = this.refs[`${t.name}Bar`] as HTMLElement;
+      let isShorthand = this.state.isTagShorthand && this.state.isTagShorthand[`${t.name}`];
+      if (isShorthand) {
+        enableTooltip(nodeBar);
+      } else {
+        disableTooltip(nodeBar);
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -75,12 +110,14 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
             let percentageWidth = Math.floor(normalizedDuration * 100);
             let shorthand = false;
             if (process.env.JS_ENV === "browser") {
-              let pixelWidth = Math.floor(normalizedDuration * this.state.windowWidth);
-              shorthand = pixelWidth < 120;
+              shorthand = this.state.isTagShorthand && this.state.isTagShorthand[`${t.name}`];
             }
             return (
-              <div className={`skill-graph-bar`} key={index} style={{ width: `${percentageWidth}%` }}>
-                <span className={`skill-graph-bar-title`}>{  shorthand ? t.shorthand : t.name }</span>
+              <div className={`skill-graph-bar`} key={index} style={{ width: `${percentageWidth}%` }} ref={`${t.name}Bar`}>
+                { shorthand ?
+                  <span className={`skill-graph-bar-title`} ref={`${t.name}Title`} data-tooltip-placement={`right`} title={`${t.name}`}>{ t.shorthand }</span> :
+                  <span className={`skill-graph-bar-title`} ref={`${t.name}Title`}>{ t.name }</span>
+                }
               </div>
             );
           })}
