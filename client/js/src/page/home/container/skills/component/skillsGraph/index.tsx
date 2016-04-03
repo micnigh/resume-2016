@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { debounce } from "lodash";
+import { throttle } from "lodash";
 
 import { enableTooltip, disableTooltip } from "../../../../../../misc/tooltip";
 import { Tag } from "../../../../../../../../../data/experiences/index.types";
@@ -20,10 +20,19 @@ export let tagsToDisplay = [
 
 export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
 
+  enquirePrintHandlers: { match: Function, unmatch: Function };
+  handleResizeDebounce: {(e)};
+
+  state = {};
+
   constructor(props) {
     super(props);
     this.handleResize = this.handleResize.bind(this);
-    this.handleResize = debounce(this.handleResize, 250);
+    this.handleResizeDebounce = throttle(this.handleResize, 250);
+    this.enquirePrintHandlers = {
+      match: this.handleResize,
+      unmatch: this.handleResize,
+    };
   }
 
   handleResize(e) {
@@ -51,9 +60,21 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
 
   componentWillMount() {
     if (process.env.JS_ENV === "browser") {
-      this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
-      window.addEventListener("resize", this.handleResize);
+      window.addEventListener("resize", this.handleResizeDebounce);
+      require("enquire.js").register("print", this.enquirePrintHandlers);
+    }
+  }
+
+  componentDidMount(nextProps) {
+    if (process.env.JS_ENV === "browser") {
       this.handleResize(undefined);
+    }
+  }
+
+  componentWillUnmount() {
+    if (process.env.JS_ENV === "browser") {
+      window.removeEventListener("resize", this.handleResizeDebounce);
+      require("enquire.js").unregister("print", this.enquirePrintHandlers);
     }
   }
 
@@ -69,12 +90,6 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
         disableTooltip(nodeBar);
       }
     });
-  }
-
-  componentWillUnmount() {
-    if (process.env.JS_ENV === "browser") {
-      window.removeEventListener("resize", this.handleResize);
-    }
   }
 
   render() {

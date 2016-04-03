@@ -15,6 +15,7 @@
     "classnames": "^2.2.3",
     "compression": "^1.6.1",
     "dotenv": "^2.0.0",
+    "enquire.js": "^2.1.1",
     "express": "^4.13.4",
     "handlebars": "^4.0.5",
     "http-proxy": "^1.13.2",

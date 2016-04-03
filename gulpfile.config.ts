@@ -57,6 +57,7 @@ let config: GulpConfig = {
           "jquery",
           "bootstrap",
           "word-wrap",
+          "enquire.js",
         ].concat(isDev ?
             // for better performance, add hmr libs
             [
