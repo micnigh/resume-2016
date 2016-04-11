@@ -45,8 +45,13 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
           relPathToBaseUrl: relPathToBaseUrl(req.url),
         }));
       } catch (e) {
-        console.log(chalk.red(e.stack));
-        next();
+        console.log(chalk.red(e.stack || e));
+        res.status(200).send(htmlTemplate({
+          isDev: config.isDev,
+          title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
+          content: "",
+          relPathToBaseUrl: relPathToBaseUrl(req.url),
+        }));
       }
     } else {
       res.status(404).send("Not found");
