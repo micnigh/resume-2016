@@ -10,7 +10,7 @@ export let routes = (
     <Route path="/" component={Base}>
       <IndexRoute component={Home}/>
     </Route>
-    <Route path="/text/" component={Text}/>
+    <Route path="/download/Michael-Nigh.txt" component={Text}/>
   </span>
 );
 

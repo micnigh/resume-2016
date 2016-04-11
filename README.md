@@ -74,9 +74,19 @@ swapon /swapfile
 
 # Misc
 
+## Generating PDFs
+
+Chrome has always made the best looking PDFs - and thanks to [athenapdf] and [docker] we can generate these automatically :)
+
+See `pdf-generator` dir for details
+
 ## Todos
 
-- TODO: upgrade gulp-watch when next version is pushed.  v4.3.5 crashes when deleting a directory.  `v4.2.5` is working until then.
+- update [nginx-proxy] once docker-compose v2 is officially supported - see https://github.com/jwilder/nginx-proxy/issues/304
+  - atm using a custom version of nginx proxy with support for VIRTUAL_PATH
+  - switch to shared volume with nginx image and docker-gen image - for security
+- while upgrading [nginx-proxy], also research [let-encrypt] for free https encryption
+- upgrade gulp-watch when next version is pushed.  v4.3.5 crashes when deleting a directory.  `v4.2.5` is working until then.
   - https://github.com/floatdrop/gulp-watch/issues/187
   - https://github.com/floatdrop/gulp-watch/commit/678a8f19fdaf1416b49f40da980b7471dea5e4c6
 
@@ -95,3 +105,6 @@ swapon /swapfile
 [es5-shim]: https://github.com/es-shims/es5-shim
 [webpack]: https://webpack.github.io/
 [docker]: https://www.docker.com/
+[athenapdf]: https://github.com/arachnys/athenapdf
+[nginx-proxy]: https://github.com/jwilder/nginx-proxy/
+[let-encrypt]: https://letsencrypt.org/

@@ -1,7 +1,14 @@
 web:
   build: "."
+  dockerfile: "Dockerfile.production"
   restart: always
   environment:
     NODE_ENV: production
     VIRTUAL_HOST: resume.mnigh.com
     VIRTUAL_PATH: /
+  volumes:
+    - /app/server/public/download/
+pdf:
+  build: "./pdf-generator/"
+  volumes_from:
+    - web:rw

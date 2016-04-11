@@ -1,5 +1,15 @@
 web:
   build: "."
+  dockerfile: "Dockerfile"
+  ports:
+    - "3000-3100:3000-3100"
   environment:
     VIRTUAL_HOST: resume.mnigh.com
     VIRTUAL_PATH: /
+  volumes:
+    - ./.tmp/development/dist/:/app/.tmp/development/dist/
+    - /app/server/public/download/
+pdf:
+  build: "./pdf-generator/"
+  volumes_from:
+    - web:rw

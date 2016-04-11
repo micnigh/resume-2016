@@ -22,6 +22,8 @@ let marked =
 
   Resume
     resume.mnigh.com
+    resume.mnigh.com/download/Michael-Nigh.txt
+    resume.mnigh.com/download/Michael-Nigh.pdf
 
 `;
 
