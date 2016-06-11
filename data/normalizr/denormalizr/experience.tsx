@@ -1,12 +1,11 @@
 import { merge } from "lodash";
-import denormalizr from "./";
-import { experience } from "../schema/";
+import { experience as schemaExperience } from "../schema/";
 import { Experience } from "../../experiences/index.types";
 
-export let denormalize = (id: string, normalizedData: any) => {
-  return denormalizr(merge({}, normalizedData, {
-    result: id,
-  }), experience) as Experience;
+let { denormalize } = require("denormalizr");
+
+export let denormalizeExperience = (id: string, normalizedEntitities: any) => {
+  return denormalize(normalizedEntitities.experiences[id], normalizedEntitities, schemaExperience) as Experience;
 };
 
-export default denormalize;
+export default denormalizeExperience;

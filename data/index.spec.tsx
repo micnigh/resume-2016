@@ -11,7 +11,7 @@ describe("data", function () {
   it("data can be denormalized", function () {
     // todo: implement full test - this assumes one experience with a tag is defined
     let id = Object.keys(data.entities.experiences)[0];
-    let denormalizedExperience: Experience = denormalizeExperience(id, data);
+    let denormalizedExperience: Experience = denormalizeExperience(id, data.entities);
     console.log(denormalizedExperience);
     expect(denormalizedExperience.tags[0].name).toBeDefined();
   });

@@ -4,7 +4,6 @@ import moment from "moment";
 import { find } from "lodash";
 
 import { Experience as ExperienceType, Project as ProjectType } from "../../../../../../../data/experiences/index.types";
-import { denormalize as denormalizeExperience } from "../../../../../../../data/normalizr/denormalizr/experience";
 
 import Project from "./component/project";
 

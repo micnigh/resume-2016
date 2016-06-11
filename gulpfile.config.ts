@@ -57,6 +57,7 @@ let config: GulpConfig = {
           "classnames",
           "superagent",
           "normalizr",
+          "denormalizr",
           "node-uuid",
           "jquery",
           "bootstrap",

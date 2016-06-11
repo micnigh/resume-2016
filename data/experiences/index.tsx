@@ -31,7 +31,7 @@ export let createExperience = (options: NormalizedExperience): NormalizedExperie
   return experience;
 };
 
-let projectsById = {};
+let projectsById: { [guid: string]: NormalizedProject; } = {};
 export let createProject = (options: NormalizedProject): NormalizedProject => {
   let project = merge({
     id: uuid.v4(),
@@ -50,7 +50,7 @@ export let createProject = (options: NormalizedProject): NormalizedProject => {
 };
 
 let tagCacheByName = {};
-let tagsById = {};
+let tagsById: { [guid: string]: Tag; } = {};
 export let createTags = (duration: string, tags: string[]): string[] => {
   return tags.map(t => {
     let tag = tagCacheByName[t] as Tag;
@@ -82,7 +82,7 @@ let experiencesAsArray: NormalizedExperience[] = [
   require("./hobbies/").default,
 ];
 
-let experiencesById = {};
+let experiencesById: { [guid: string]: NormalizedExperience; } = {};
 experiencesAsArray.forEach(e => experiencesById[e.id] = e);
 
 export let experiences = experiencesById;

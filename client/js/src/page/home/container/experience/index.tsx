@@ -4,7 +4,7 @@ import moment from "moment";
 import { find } from "lodash";
 
 import { Experience as ExperienceType, Project as ProjectType } from "../../../../../../../data/experiences/index.types";
-import { denormalize as denormalizeExperience } from "../../../../../../../data/normalizr/denormalizr/experience";
+import { denormalizeExperience } from "../../../../../../../data/normalizr/denormalizr/experience";
 
 import Project from "./component/project";
 
@@ -22,7 +22,7 @@ export let sortProject = (a: ProjectType, b: ProjectType) => {
 export let mapStateToProps = (state, ownProps) => {
   let experiences = Object
     .keys(state.entities.experiences)
-    .map(id => denormalizeExperience(id, state))
+    .map(id => denormalizeExperience(id, state.entities))
     .sort(sortProject);
   return {
     experiences,
