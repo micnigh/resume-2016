@@ -89,6 +89,10 @@ See `pdf-generator` dir for details
 - upgrade gulp-watch when next version is pushed.  v4.3.5 crashes when deleting a directory.  `v4.2.5` is working until then.
   - https://github.com/floatdrop/gulp-watch/issues/187
   - https://github.com/floatdrop/gulp-watch/commit/678a8f19fdaf1416b49f40da980b7471dea5e4c6
+- improve rendering performance
+  - custom fonts are very slow to load, partially due to them loading after images load.
+  - lots of images download on first request, mostly `.svg` icons;  look into combining them into a spritesheet.  See [gulp-svg-sprite]
+  - async load javascript in parallel - order must be `lib.js` then `app.js`
 
 ---
 
@@ -108,3 +112,4 @@ See `pdf-generator` dir for details
 [athenapdf]: https://github.com/arachnys/athenapdf
 [nginx-proxy]: https://github.com/jwilder/nginx-proxy/
 [lets-encrypt]: https://letsencrypt.org/
+[gulp-svg-sprite]: https://github.com/jkphl/gulp-svg-sprite
