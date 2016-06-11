@@ -15,7 +15,19 @@
     </head>
     <body>
         <div id="content">{{{content}}}</div>
-        <script src="{{relPathToBaseUrl}}js/lib.js"></script>
-        <script src="{{relPathToBaseUrl}}js/app.js"></script>
+        <script>
+        // async load scripts sequentially
+        setTimeout(function() {
+          [
+            "{{relPathToBaseUrl}}js/lib.js",
+            "{{relPathToBaseUrl}}js/app.js"
+          ].forEach(function(src) {
+            var script = document.createElement("script");
+            script.src = src;
+            script.async = false;
+            document.head.appendChild(script);
+          });
+        }, 0);
+        </script>
     </body>
 </html>
