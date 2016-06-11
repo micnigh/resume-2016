@@ -61,5 +61,8 @@
     "vinyl-paths": "github:DefinitelyTyped/DefinitelyTyped/vinyl-paths/vinyl-paths.d.ts#25b3502efc4f4750346d2d9a03667398966154b9",
     "vinyl-source-stream": "github:DefinitelyTyped/DefinitelyTyped/vinyl-source-stream/vinyl-source-stream.d.ts#6be3aa6317135b9255b000924af9d7cebe3737bf",
     "webpack": "github:DefinitelyTyped/DefinitelyTyped/webpack/webpack.d.ts#51868917c7480cc6b1187a59bbd0120effa29841"
+  },
+  "globalDependencies": {
+    "node-schedule": "registry:dt/node-schedule#1.1.0+20160521153413"
   }
 }

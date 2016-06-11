@@ -6,6 +6,8 @@ import chalk from "chalk";
 import config from "../../gulpfile.config";
 import path from "path";
 import moment from "moment";
+import schedule from "node-schedule";
+let escape = require("regexp.escape");
 
 import { Provider } from "react-redux";
 
@@ -13,16 +15,37 @@ let htmlTemplate = require("../templates/index.html");
 
 export let router = express.Router({ mergeParams: true });
 
+// rebuild data once at 5am every day
+let dataRebuildCacheSchedule = schedule.scheduleJob({
+  hour: 5,
+}, () => {
+  console.log("Rebuilding data cache");
+  clearNodeModuleCache({
+    includePaths: ["data"],
+  });
+  refreshState();
+});
+
+let initialState = undefined;
+let store = undefined;
+let routes = undefined;
+let renderedContent = undefined;
+let refreshState = () => {
+  initialState = require("../../client/js/src/store/sample/").default;
+  let { initStore } = require("../../client/js/src/store/");
+  store = initStore(initialState);
+  routes = require("../../client/js/src/routes/").default;
+};
+
+refreshState();
+
 router.get(`${config.baseUrl}*`, (req, res, next) => {
   if (config.isDev) {
     // always use latest version of module each request
-    clearModuleCacheForSharedModules();
+    clearNodeModuleCache();
   }
 
-  let initialState = require("../../client/js/src/store/sample/").default;
-  let { initStore } = require("../../client/js/src/store/");
-  let store = initStore(initialState);
-  let routes = require("../../client/js/src/routes/").default;
+  refreshState();
 
   match({
     routes,
@@ -67,17 +90,45 @@ let relPathToBaseUrl = function (path) {
   return result;
 };
 
-let clearModuleCacheForSharedModules = function () {
-  let escape = require("regexp.escape");
-  let regExpString = "^" + escape(path.resolve(`${process.cwd()}/`));
-  let regExpTester = new RegExp(regExpString);
+/**
+ * Clears modules from node cache, so calling require will rebuild module
+ */
+let clearNodeModuleCache = function (options: {
+  /** relative include paths from project dir */
+  includePaths?: string[],
+  /** relative exclude paths from project dir */
+  excludePaths?: string[]
+} = {
+  includePaths: [],
+  excludePaths: [],
+}) {
+  options = Object.assign({
+    includePaths: [],
+    excludePaths: [],
+  }, options);
+  let { includePaths, excludePaths } = options;
+  console.log(options);
+  excludePaths.push("node_modules");
+  let regExpIncludePaths = includePaths.map(p => new RegExp("^" + escape(path.resolve(`${process.cwd()}/${p}`))));
+  let regExpExcludePaths = excludePaths.map(p => new RegExp("^" + escape(path.resolve(`${process.cwd()}/${p}`))));
   let modulesToDelete = [];
   for (let k in require.cache) {
-    if (regExpTester.test(k)) {
-      modulesToDelete.push(k);
-      delete require.cache[k];
+    if (regExpIncludePaths.length > 0) {
+      if (
+        regExpIncludePaths.some(r => r.test(k)) &&
+        !regExpExcludePaths.some(r => r.test(k))
+      ) {
+        modulesToDelete.push(k);
+      }
+    } else {
+      if (
+        !regExpExcludePaths.some(r => r.test(k))
+      ) {
+        modulesToDelete.push(k);
+      }
     }
   }
+  console.log(modulesToDelete);
   modulesToDelete.forEach(m => delete require.cache[m]);
   console.log(chalk.yellow(`Cleared module cache with RegExp - deleted ${modulesToDelete.length} modules`));
 };
