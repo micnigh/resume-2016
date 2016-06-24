@@ -10,5 +10,6 @@ web:
     - /app/server/public/download/
 pdf:
   build: "./pdf-generator/"
+  restart: always
   volumes_from:
     - web:rw
