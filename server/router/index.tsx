@@ -43,9 +43,8 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
   if (config.isDev) {
     // always use latest version of module each request
     clearNodeModuleCache();
+    refreshState();
   }
-
-  refreshState();
 
   match({
     routes,
@@ -57,6 +56,16 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
       try {
+        if (!config.isDev) {
+           // regenerate `data` each request
+           clearNodeModuleCache({
+             includePaths: [
+               "data/",
+               "client/js/src/store/sample/",
+             ],
+           });
+           refreshState();
+        }
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
           title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
