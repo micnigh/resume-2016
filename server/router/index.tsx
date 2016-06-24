@@ -16,9 +16,10 @@ let htmlTemplate = require("../templates/index.html");
 export let router = express.Router({ mergeParams: true });
 
 // rebuild data once at 5am every day
-let dataRebuildCacheSchedule = schedule.scheduleJob({
-  hour: 5,
-}, () => {
+let rule = new schedule.RecurrenceRule();
+rule.hour = 5;
+
+let dataRebuildCacheSchedule = schedule.scheduleJob(rule, () => {
   console.log("Rebuilding data cache");
   clearNodeModuleCache({
     includePaths: [
