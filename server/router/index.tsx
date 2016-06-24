@@ -21,7 +21,10 @@ let dataRebuildCacheSchedule = schedule.scheduleJob({
 }, () => {
   console.log("Rebuilding data cache");
   clearNodeModuleCache({
-    includePaths: ["data"],
+    includePaths: [
+      "data/",
+      "client/js/src/store/sample/",
+    ],
   });
   refreshState();
 });
@@ -57,13 +60,7 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
     } else if (renderProps) {
       try {
         if (!config.isDev) {
-           // regenerate `data` each request
-           clearNodeModuleCache({
-             includePaths: [
-               "data/",
-               "client/js/src/store/sample/",
-             ],
-           });
+           // regenerate `data` each valid request
            refreshState();
         }
         res.status(200).send(htmlTemplate({
