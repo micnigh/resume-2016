@@ -1,15 +1,26 @@
 web:
   build: "."
   dockerfile: "Dockerfile"
-  ports:
-    - "3000-3100:3000-3100"
-  environment:
-    VIRTUAL_HOST: resume.mnigh.com
-    VIRTUAL_PATH: /
   volumes:
-    - ./.tmp/development/dist/:/app/.tmp/development/dist/
-    - /app/server/public/download/
+    - ./.tmp/production/dist/:/app/.tmp/production/dist/
+    - ./client/:/app/client/
+    - ./data/:/app/data/
+    - ./npm-scripts/:/app/npm-scripts/
+    - ./server/:/app/server/
+    - ./tasks/:/app/tasks/
+    - ./.bowerrc:/app/.bowerrc
+    - ./bower.json:/app/bower.json
+    - ./gulpfile.config.ts:/app/gulpfile.config.ts
+    - ./gulpfile.config.types.ts:/app/gulpfile.config.types.ts
+    - ./gulpfile.postinstall.js:/app/gulpfile.postinstall.js
+    - ./gulpfile.transpile.js:/app/gulpfile.transpile.js
+    - ./gulpfile.ts:/app/gulpfile.ts
+    - ./package.json:/app/package.json
+    - ./tsconfig.json:/app/tsconfig.json
+    - ./typings.json:/app/typings.json
 pdf:
-  build: "./pdf-generator/"
+  build: "./docker/pdf-generator/"
+  links:
+    - "web:web"
   volumes_from:
     - web:rw

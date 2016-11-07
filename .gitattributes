@@ -9,3 +9,5 @@
 *.ttf binary
 *.woff binary
 *.pdf binary
+
+*.sh  eol=lf

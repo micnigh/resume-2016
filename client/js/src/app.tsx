@@ -5,7 +5,9 @@ import { browserHistory } from "react-router";
 import Root from "./container/root";
 let { syncHistoryWithStore, routeReducer } = require("react-router-redux");
 import { initStore } from "./store/";
-import initialState from "../../../data/";
+let { initialState } = window as any;
+import "../../../data/";
+
 import { resetEntities } from "./actions/entities";
 
 let store = initStore(initialState);

@@ -1,11 +1,19 @@
-FROM node:4
+FROM node:6
 
-ADD package.json /app/package.json
+ADD ./ /app/
 WORKDIR /app/
-RUN npm install
+RUN npm install -g gulp typings bower
+RUN npm install --unsafe-perm
 
-EXPOSE 3000-3100
+ADD /docker/build/container/ /
 
-ADD . /app/
+# fix container file permissions
+RUN true && \
 
-CMD ["node", "server/index.js"]
+    # scripts
+    chown -R root:root /scripts/ && \
+    chmod -R 770       /scripts/ && \
+    chmod    771       /scripts/
+
+ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
+CMD ["/scripts/build.sh"]

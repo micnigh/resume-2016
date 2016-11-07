@@ -8,7 +8,7 @@ function execHelper(commands) {
 }
 
 execHelper(["typings", "install"]);
-execHelper(["bower", "install"]);
+execHelper(["bower", "install", "--allow-root"]);
 execHelper(["gulp", "--gulpfile", "gulpfile.transpile.js", "clean"]);
 execHelper(["gulp", "--gulpfile", "gulpfile.transpile.js", "build"]);
 execHelper(["gulp", "--gulpfile", "gulpfile.postinstall.js", "build"]);

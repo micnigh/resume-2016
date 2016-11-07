@@ -14,7 +14,12 @@
         <link rel="stylesheet" href="{{relPathToBaseUrl}}css/app.css">
     </head>
     <body>
-        <div id="content">{{{content}}}</div>
+        <div id="content">{{{appContent}}}</div>
+        <script type="text/javascript">
+        //<![CDATA[
+          {{{inlineJS}}}
+        //]]>
+        </script>
         <script>
         // async load scripts sequentially
         setTimeout(function() {

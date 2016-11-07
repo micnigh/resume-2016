@@ -13,8 +13,7 @@ docker-compose*.yml
 # misc
 README.md
 
-.tmp/development/
-.tmp/staging/
+.tmp/
 
 typings
 

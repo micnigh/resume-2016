@@ -66,6 +66,9 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
         }
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
+          inlineJS: `
+            window.initialState = ${JSON.stringify(initialState)}
+          `,
           title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
           content: renderToString(
             <Provider store={store}>
@@ -78,8 +81,11 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
         console.log(chalk.red(e.stack || e));
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
+          inlineJS: `
+            window.initialState = ${JSON.stringify(initialState)}
+          `,
           title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
-          content: "",
+          appContent: "",
           relPathToBaseUrl: relPathToBaseUrl(req.url),
         }));
       }
@@ -89,7 +95,7 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
   });
 });
 
-let relPathToBaseUrl = function (path) {
+export let relPathToBaseUrl = function (path) {
   let result = path;
   result = result.replace(config.baseUrl, "/"); // remove baseUrl
   result = result.replace(/^.*?:\/\//, "", ""); // remove protocol

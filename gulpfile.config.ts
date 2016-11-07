@@ -63,20 +63,7 @@ let config: GulpConfig = {
           "bootstrap",
           "word-wrap",
           "enquire.js",
-        ].concat(isDev ?
-            // for better performance, add hmr libs
-            [
-              "babel-preset-react-hmre",
-              "webpack-hot-middleware/client-overlay",
-            ].concat(
-              Object.keys(
-                require(`${process.cwd()}/node_modules/webpack-hot-middleware/package.json`).dependencies
-              )
-                .map(d => `webpack-hot-middleware/node_modules/${d}`)
-            )
-          :
-            []
-        ),
+        ],
         webpack: {
           plugins: [
               new webpack.ProvidePlugin({
