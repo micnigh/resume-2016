@@ -15,7 +15,6 @@ let wrap = require("word-wrap");
 export class Experience extends Component<{ experiences?: ExperienceType[] }, any> {
   render() {
     let { experiences } = this.props;
-    console.log(experiences);
     return (
       <div id="experience">
         <div dangerouslySetInnerHTML={{__html: `EXPERIENCES
