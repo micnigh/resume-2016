@@ -3,6 +3,7 @@ web:
   dockerfile: "Dockerfile"
   volumes:
     - ./.tmp/production/dist/:/app/.tmp/production/dist/
+    - ./docker/build/container/scripts/:/scripts/
     - ./client/:/app/client/
     - ./data/:/app/data/
     - ./npm-scripts/:/app/npm-scripts/
@@ -22,5 +23,6 @@ pdf:
   build: "./docker/pdf-generator/"
   links:
     - "web:web"
-  volumes_from:
-    - web:rw
+  volumes:
+    - ./.tmp/production/dist/:/app/.tmp/production/dist/
+    - ./docker/pdf-generator/container/scripts/:/scripts/

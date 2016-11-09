@@ -5,6 +5,7 @@ import size from "gulp-size";
 import chalk from "chalk";
 import path from "path";
 import moment from "moment";
+import mkdirp from "mkdirp";
 import fs from "fs";
 import React from "react";
 import { renderToString } from "react-dom/server";
@@ -55,6 +56,7 @@ export let generateTask = (gulp: Gulp, config: GulpConfig): GulpWatchTask => {
         relPathToBaseUrl: ``,
       });
 
+      mkdirp.sync(`${config.distPath}/`);
       fs.writeFile(`${config.distPath}/index.html`, indexHTMLContent, (err) => {
         if (err) { console.error(err.stack || err); }
         done();
@@ -78,9 +80,10 @@ export let generateTask = (gulp: Gulp, config: GulpConfig): GulpWatchTask => {
             <RouterContext {...renderProps} />
           </Provider>
         ),
-        relPathToBaseUrl: `../`,
+        relPathToBaseUrl: `../../`,
       });
 
+      mkdirp.sync(`${config.distPath}/download/Michael-Nigh.txt/`);
       fs.writeFile(`${config.distPath}/download/Michael-Nigh.txt/index.html`, indexHTMLContent, (err) => {
         if (err) { console.error(err.stack || err); }
         done();
