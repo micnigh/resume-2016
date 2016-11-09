@@ -1,4 +1,5 @@
 [resume.mnigh.com](http://resume.mnigh.com)
+[micnigh.github.io/resume/](https://micnigh.github.io/resume/)
 
 # Requirements/Recommended
 
