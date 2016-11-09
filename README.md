@@ -37,8 +37,8 @@ gulp watch
 docker-compose build && \
 docker-compose up --force-recreate
 
-# test website using nginx
-docker run -it --rm=true -v /$PWD/.tmp/production/dist/://usr/share/nginx/html/:ro -p 80:80 nginx
+# test website using nginx - localhost/resume/
+docker run -it --rm=true -v /$PWD/.tmp/production/dist/://usr/share/nginx/html/resume/:ro -p 80:80 nginx
 
 # publish - note, very slow first time
 npm run deploy

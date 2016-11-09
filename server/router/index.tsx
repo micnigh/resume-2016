@@ -67,7 +67,8 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
           inlineJS: `
-            window.initialState = ${JSON.stringify(initialState)}
+            window.baseUrl = "${config.baseUrl}";
+            window.initialState = ${JSON.stringify(initialState)};
           `,
           title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
           content: renderToString(
@@ -82,6 +83,7 @@ router.get(`${config.baseUrl}*`, (req, res, next) => {
         res.status(200).send(htmlTemplate({
           isDev: config.isDev,
           inlineJS: `
+            window.baseUrl = "${config.baseUrl}";
             window.initialState = ${JSON.stringify(initialState)}
           `,
           title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,

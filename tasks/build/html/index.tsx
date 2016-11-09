@@ -45,7 +45,8 @@ export let generateTask = (gulp: Gulp, config: GulpConfig): GulpWatchTask => {
       let indexHTMLContent = htmlTemplate({
         isDev: config.isDev,
         inlineJS: `
-          window.initialState = ${JSON.stringify(initialState)}
+          window.baseUrl = "${config.baseUrl}resume/";
+          window.initialState = ${JSON.stringify(initialState)};
         `,
         title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
         appContent: renderToString(
@@ -72,7 +73,8 @@ export let generateTask = (gulp: Gulp, config: GulpConfig): GulpWatchTask => {
       let indexHTMLContent = htmlTemplate({
         isDev: config.isDev,
         inlineJS: `
-          window.initialState = ${JSON.stringify(initialState)}
+          window.baseUrl = "${config.baseUrl}resume/";
+          window.initialState = ${JSON.stringify(initialState)};
         `,
         title: `Michael Nigh - Resume - ${moment().format("YYYY-MM-DD")}`,
         appContent: renderToString(

@@ -5,12 +5,14 @@ import Base from "../page/base";
 import Home from "../page/home/";
 import Text from "../page/text/";
 
+let baseUrl = typeof window !== "undefined" && (window as any).baseUrl ? (window as any).baseUrl : "/";
+
 export let routes = (
   <span>
-    <Route path="/" component={Base}>
+    <Route path={`${baseUrl}`} component={Base}>
       <IndexRoute component={Home}/>
     </Route>
-    <Route path="/download/Michael-Nigh.txt" component={Text}/>
+    <Route path={`${baseUrl}download/Michael-Nigh.txt`} component={Text}/>
   </span>
 );
 
