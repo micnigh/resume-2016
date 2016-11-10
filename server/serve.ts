@@ -23,16 +23,12 @@ export let serve = async function () {
     .use(compression())
     .use(morgan(":remote-addr - :remote-user [:date[clf]] \":method :url HTTP/:http-version\" :status :res[content-length] \":referrer\" \":user-agent\" :response-time ms"));
 
-  let ignoreIndexHTML = (req, res, next) => {
-    if (req.path === "/") {
-      next("route");
-    } else {
-      next();
-    }
-  };
+  let expressStaticRouterIgnoreIndexHTML = (staticPath: string) =>
+    (req, res, next) =>
+      req.path === "/" ? next() : express.static(`${staticPath}`)(req, res, next);
 
-  app.use(BASE_URL, ignoreIndexHTML, express.static(`${__dirname}/public`));
-  app.use(BASE_URL, ignoreIndexHTML, express.static(`${config.distPath}`));
+  app.use(BASE_URL, expressStaticRouterIgnoreIndexHTML(`${__dirname}/public`));
+  app.use(BASE_URL, expressStaticRouterIgnoreIndexHTML(`${config.distPath}`));
 
   app.use("/api", api.router);
 
