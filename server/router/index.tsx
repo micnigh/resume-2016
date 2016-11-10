@@ -122,7 +122,7 @@ let clearNodeModuleCache = function (options: {
     excludePaths: [],
   }, options);
   let { includePaths, excludePaths } = options;
-  console.log(options);
+  // console.log(options);
   excludePaths.push("node_modules");
   let regExpIncludePaths = includePaths.map(p => new RegExp("^" + escape(path.resolve(`${process.cwd()}/${p}`))));
   let regExpExcludePaths = excludePaths.map(p => new RegExp("^" + escape(path.resolve(`${process.cwd()}/${p}`))));
@@ -143,7 +143,7 @@ let clearNodeModuleCache = function (options: {
       }
     }
   }
-  console.log(modulesToDelete);
+  // console.log(modulesToDelete);
   modulesToDelete.forEach(m => delete require.cache[m]);
   console.log(chalk.yellow(`Cleared module cache with RegExp - deleted ${modulesToDelete.length} modules`));
 };
