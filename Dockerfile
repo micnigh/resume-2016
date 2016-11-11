@@ -1,9 +1,20 @@
 FROM node:6
 
-ADD ./ /app/
-WORKDIR /app/
 RUN npm install -g gulp typings bower
+
+RUN mkdir -p /app/
+ADD ./package.json /app/package.json
+ADD ./bower.json /app/bower.json
+ADD ./.bowerrc /app/.bowerrc
+ADD ./typings.json /app/typings.json
+ADD ./gulpfile.postinstall.js /app/gulpfile.postinstall.js
+ADD ./gulpfile.transpile.js /app/gulpfile.transpile.js
+ADD ./tsconfig.sample.json /app/tsconfig.sample.json
+ADD ./npm-scripts/ /app/npm-scripts/
+WORKDIR /app/
 RUN npm install --unsafe-perm
+
+ADD ./ /app/
 
 ADD /docker/build/container/ /
 

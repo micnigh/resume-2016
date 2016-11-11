@@ -19,6 +19,8 @@ web:
     - ./package.json:/app/package.json
     - ./tsconfig.json:/app/tsconfig.json
     - ./typings.json:/app/typings.json
+  ports:
+    - 80:80
 pdf:
   build: "./docker/pdf-generator/"
   links:

@@ -10,4 +10,4 @@ cd /app/.tmp/production/dist/download/
 
 dockerize -timeout 300s -wait tcp://web:80
 
-athenapdf 'http://web/' 'Michael-Nigh.pdf'
+athenapdf --delay 2000 'http://web/' 'Michael-Nigh.pdf'
