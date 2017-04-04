@@ -28,7 +28,7 @@ Build and maintain CED3 web applications to enhance course development and deliv
 
 Responsibilities include managing programming team, recruiting and training new hires, managing project timelines and scope, choosing tech stacks and architecture, setting long term plans and goals, and supporting and extending services.
 
-Backends in NodeJs Express with Docker deployments using the [twelve-factor app](http://12factor.net/) app model.
+Backends in NodeJs Express with Docker deployments using the [twelve-factor app](http://12factor.net/) model.
 
 Frontends with React/Redux and Webpack for bundling.
 `;
