@@ -12,12 +12,12 @@ services:
   - docker
 
 install:
-  npm install
-  docker-compose build
-  docker-compose up --force-recreate
+  - npm install
+  - docker-compose build
+  - docker-compose up --force-recreate
 
 script:
-  npm run deploy
+  - npm run deploy
 
 deploy:
   provider: pages
