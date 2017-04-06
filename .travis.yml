@@ -1,0 +1,27 @@
+env:
+  global:
+  - GIT_NAME: "'travis autodeploy'"
+  - GIT_EMAIL: autodeploy@travis-ci.org
+  - GH_REF: git@github.com:micnigh/resume.git
+
+sudo: required
+
+language: node
+
+services:
+  - docker
+
+install:
+  npm install
+  docker-compose build
+  docker-compose up --force-recreate
+
+script:
+  npm run deploy
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
