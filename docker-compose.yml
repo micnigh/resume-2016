@@ -3,7 +3,6 @@ web:
   dockerfile: "Dockerfile"
   volumes:
     - ./.tmp/production/dist/:/app/.tmp/production/dist/
-    - ./docker/build/container/scripts/:/scripts/
     - ./client/:/app/client/
     - ./data/:/app/data/
     - ./npm-scripts/:/app/npm-scripts/
