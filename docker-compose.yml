@@ -26,4 +26,3 @@ pdf:
     - "web:web"
   volumes:
     - ./.tmp/production/dist/:/app/.tmp/production/dist/
-    - ./docker/pdf-generator/container/scripts/:/scripts/
