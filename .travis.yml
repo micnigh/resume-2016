@@ -23,11 +23,11 @@ script:
   - gulp --gulpfile gulpfile.transpile.js build
   - docker-compose build
   - docker-compose up --force-recreate
-  - npm run deploy
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: .tmp/production/dist/
   on:
     branch: master
