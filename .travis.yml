@@ -22,7 +22,7 @@ install:
 script:
   - gulp --gulpfile gulpfile.transpile.js build
   - docker-compose build
-  - docker-compose up --force-recreate
+  - sudo docker-compose up --force-recreate
   - npm run deploy
 
 deploy:
