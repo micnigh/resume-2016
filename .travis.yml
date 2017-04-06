@@ -12,6 +12,7 @@ services:
   - docker
 
 install:
+  - npm install -g gulp typings bower
   - npm install
   - docker-compose build
   - docker-compose up --force-recreate

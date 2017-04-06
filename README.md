@@ -3,6 +3,8 @@
 
 [micnigh.github.io/resume/](https://micnigh.github.io/resume/)
 
+[![Build Status](https://travis-ci.org/micnigh/resume.svg?branch=master)](https://travis-ci.org/micnigh/resume)
+
 # Requirements/Recommended
 
  - [node] `v6+`
