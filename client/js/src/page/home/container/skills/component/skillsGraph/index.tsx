@@ -23,7 +23,11 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
   enquirePrintHandlers: { match: Function, unmatch: Function };
   handleResizeDebounce: {(e)};
 
-  state = {};
+  state = {
+    fullTagWidth: {},
+    isTagShorthand: {},
+    windowWidth: undefined,
+  };
 
   constructor(props) {
     super(props);
@@ -42,14 +46,7 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
     this.setState({ windowWidth: window.innerWidth || document.body.clientWidth });
 
     let fullTagWidth = this.state.fullTagWidth || {};
-    if (typeof this.state.fullTagWidth === "undefined") {
-      tags.forEach(t => {
-        let nodeTitle = this.refs[`${t.name}Title`] as HTMLElement;
-        fullTagWidth[t.name] = nodeTitle.offsetWidth;
-      });
-      this.setState({ fullTagWidth });
-    }
-
+    
     let isTagShorthand = {};
     tags.forEach(t => {
       let nodeBar = this.refs[`${t.name}Bar`] as HTMLElement;
@@ -67,7 +64,25 @@ export class SkillsGraph extends Component<{ tags: Tag[] }, any> {
 
   componentDidMount(nextProps) {
     if (process.env.JS_ENV === "browser") {
-      this.handleResize(undefined);
+      let WebFont = require("webfontloader");
+      WebFont.load({
+        custom: {
+          families: ["special-elite", "capture-it"],
+        },
+        active: () => {
+          let { tags } = this.props;
+          tags = tagsToDisplay.map(name => tags.find(t => t.name === name));
+
+          let fullTagWidth = this.state.fullTagWidth || {};
+          tags.forEach(t => {
+            let nodeTitle = this.refs[`${t.name}Title`] as HTMLElement;
+            fullTagWidth[t.name] = nodeTitle.offsetWidth;
+          });
+          this.setState({ fullTagWidth });
+
+          this.handleResize(undefined);
+        }
+      });
     }
   }
 
