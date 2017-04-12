@@ -31,6 +31,8 @@ Responsibilities include managing programming team, recruiting and training new 
 Backends in NodeJs Express with Docker deployments using the [twelve-factor app](http://12factor.net/) model.
 
 Frontends with React/Redux and Webpack for bundling.
+
+Maintain legacy systems in PHP and Java Wicket.
 `;
 
 let tagsDeveloper = createTags(durationDeveloper, [
