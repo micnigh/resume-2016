@@ -32,7 +32,7 @@ Backends in NodeJs Express with Docker deployments using the [twelve-factor app]
 
 Frontends with React/Redux and Webpack for bundling.
 
-Legacy systems in PHP and Java Wicket.
+Legacy systems in PHP, Java Wicket, and Backbone.
 `;
 
 let tagsDeveloper = createTags(durationDeveloper, [
