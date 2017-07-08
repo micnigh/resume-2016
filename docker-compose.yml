@@ -3,23 +3,6 @@ web:
   dockerfile: "Dockerfile"
   volumes:
     - ./.tmp/production/dist/:/app/.tmp/production/dist/
-    - ./client/:/app/client/
-    - ./data/:/app/data/
-    - ./npm-scripts/:/app/npm-scripts/
-    - ./server/:/app/server/
-    - ./tasks/:/app/tasks/
-    - ./.bowerrc:/app/.bowerrc
-    - ./bower.json:/app/bower.json
-    - ./gulpfile.config.ts:/app/gulpfile.config.ts
-    - ./gulpfile.config.types.ts:/app/gulpfile.config.types.ts
-    - ./gulpfile.postinstall.js:/app/gulpfile.postinstall.js
-    - ./gulpfile.transpile.js:/app/gulpfile.transpile.js
-    - ./gulpfile.ts:/app/gulpfile.ts
-    - ./package.json:/app/package.json
-    - ./tsconfig.json:/app/tsconfig.json
-    - ./typings.json:/app/typings.json
-  ports:
-    - 80:80
 pdf:
   build: "./docker/pdf-generator/"
   links:

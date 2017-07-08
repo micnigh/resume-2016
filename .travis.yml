@@ -6,21 +6,10 @@ env:
 
 sudo: required
 
-language: node_js
-node_js:
-  - "6"
-
 services:
   - docker
 
-before_install:
-  - npm install -g gulp typings bower
-
-install:
-  - npm install
-
 script:
-  - gulp --gulpfile gulpfile.transpile.js build
   - docker-compose build
   - docker-compose up --force-recreate
 

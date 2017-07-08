@@ -1,26 +1,10 @@
-.git
-.vagrant
-.settings
-.externalToolBuilder
+.tmp/
+.git/
 
 node_modules
+typings
+client/.bower_components
 
-# docker files
-docker-compose.yml
-docker-compose.production.yml
 docker-compose*.yml
 
-# misc
 README.md
-
-.tmp/
-
-typings
-
-*.ts
-*.tsx
-*.es6
-
-client/.bower_components
-server/public/*/*
-tasks
