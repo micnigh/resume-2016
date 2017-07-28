@@ -16,6 +16,9 @@ RUN npm install --unsafe-perm
 
 ADD ./ /app/
 
+# run postinstall again to complete transpile steps
+RUN npm run postinstall
+
 ADD /docker/build/container/ /
 
 # fix container file permissions
