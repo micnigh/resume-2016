@@ -1,6 +1,6 @@
 FROM node:8
 
-RUN npm install -g gulp typings bower yarn
+RUN npm install -g gulp typings bower
 
 RUN mkdir -p /app/
 ADD ./package.json /app/package.json
@@ -12,7 +12,7 @@ ADD ./gulpfile.transpile.js /app/gulpfile.transpile.js
 ADD ./tsconfig.sample.json /app/tsconfig.sample.json
 ADD ./npm-scripts/ /app/npm-scripts/
 WORKDIR /app/
-RUN yarn install
+RUN npm install --unsafe-perm
 
 ADD ./ /app/
 
